@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>European Union Capital Quiz</title>
+  <title>European Union Flag Quiz</title>
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
@@ -14,28 +14,41 @@
 </head>
 
 <body>
-  <div id="intro-popup">
-    <div class="intro-content">
-      <h1>Welcome to European Union Capital Quiz! <i class="fa-solid fa-award"></i></h1>
-      <p id="rule-text">Here are the rules...</p>
-      <div id="popup-buttons">
-        <button id="previous-btn">Previous</button>
-        <button id="next-btn">Next</button>
-        <button id="finish-btn">Finish</button>
+  <h1>Welcome to EU Capital Flag Quiz! <i class="fa-solid fa-award"></i></h1>
+  <div class="quiz-container">
+    <div id="flag-display">
+      <img id="flag-image" src="https://flagcdn.com/h160/at.png" alt="Flag">
+    </div>
+    <div class="game-area">
+      <h2 id="question">Which country does this flag belong to?</h2>
+      <div id="answer-buttons">
+        <div>
+          <button class="button">Answer Button 1</button>
+        </div>
+        <div>
+          <button class="button">Answer Button 2</button>
+        </div>
+        <div>
+          <button class="button">Answer Button 3</button>
+        </div>
+        <div>
+          <button class="button">Answer Button 4</button>
+        </div>
       </div>
+      <span id="timer">Timer</span>
     </div>
-  </div>
-  <div id="main-content">
-    <div class="image-container">
-      <div class="rotating-images"></div>
-      <p id="city-name">City Name</p>
-    </div>
-    <div id="controls">
-      <button id="match-button">Match</button>
-      <img id="flag-img" src="" alt="Country Flag">
+    <button id="next">Next</button>
+    <div class="controls">
       <p id="score">Score: 0</p>
       <p id="missed">Misses: 0</p>
     </div>
+  </div>
+  <div class="rules">
+    <button class="game-rules">Game Rules</button>
+    <div class="hide">You have 10 games to play.</div>
+    <div class="hide">You get a score for each correct answer.</div>
+    <div class="hide">If you select the wrong answer, it will added to the incorrect count.</div>
+    <div class="hide">If time runs out, it will also added to the incorrect count.</div>
   </div>
   <script src="assets/js/script.js"></script>
   <!-- Font Awesome kit -->
