@@ -8,12 +8,56 @@
   box-sizing: border-box;
 }
 
+/* Define custom fonts and color palette */
+:root {
+  /* Fonts */
+  --font-family: "Open Sans", sans-serif;
+  --heading-font: "Roboto", sans-serif;
+
+  /* Colors */
+  --background-color: #96A0A0;
+  --font-color: #3a3a3a;
+  --button-color: #f5f5f5;
+  --quiz-container: #96A0A0;
+}
+
 /* General style */
 body {
+  justify-content: center;
+  height: 100vh;
   display: flex;
   text-align: center;
   flex-direction: column;
-  color: #3a3a3a;
-  font-family: 'roboto', sans-serif;
+  color: var(--font-color);
+  font-family: var(--font-family);
 }
 
+.quiz-container {
+  background: var(--quiz-container);
+  box-sizing: border-box;
+  width: 75%;
+  height: 80vh;
+  text-align: center;
+  max-height: 800px;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 2rem;
+  padding: 1rem;
+
+}
+
+.game-area {
+padding: 4px;
+margin: 8px;
+
+}
+
+.button {
+  position:relative;
+  padding: 1rem;
+  margin: 4px;
+  box-shadow: 0 4px 6px var(--button-color);
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
