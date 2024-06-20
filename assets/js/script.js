@@ -1,9 +1,10 @@
 // Wait for the DOM to finish loading before running the game
 document.addEventListener('DOMContentLoaded', function () {
-  let country = getRandomCountry();
+  let startingCountry = getStartingCountry();
   document.getElementById(
     'flag-image'
-  ).src = `https://flagcdn.com/h160/${country.code}.png`;
+  ).src = `https://flagcdn.com/h160/${startingCountry.code}.png`;
+  startGame(startingCountry);
 });
 
 // Declare initial variables
@@ -11,7 +12,7 @@ let correctCount = 0;
 let incorrectCount = 0;
 let timeRemain = 15; // set countdown time to 15 seconds
 
-const countries = [
+const countriesList = [
   { code: 'at', name: 'Austria' },
   { code: 'be', name: 'Belgium' },
   { code: 'bg', name: 'Bulgaria' },
@@ -42,10 +43,12 @@ const countries = [
 ];
 
 // Function to get a random country from the countries array
-
-function getRandomCountry() {
-  let randomCountry = Math.floor(Math.random() * countries.length);
-  return countries[randomCountry];
+function startGame(startingCountry) {
+  getAnswerButtons(startingCountry);
+}
+function getStartingCountry() {
+  let randomCountry = Math.floor(Math.random() * countriesList.length);
+  return countriesList[randomCountry];
 }
 
 let answerBtn = document.querySelectorAll('#answer-buttons .button');
@@ -68,3 +71,29 @@ answerBtn.forEach((button) => {
 function verifyAnswer() {
   console.log(`The user selected ${country.code}`);
 }
+
+function preparedAnswers(initialCountry) {
+  const countries = [];
+  // Add initial country to the countries array
+  console.log(initialCountry);
+  countries.push(initialCountry.name);
+  while (countries.length < 4) {
+    const randomCountryIndex = Math.floor(Math.random() * 27); // Generates a random number between 0 and 26
+    let currentCounty = countriesList[randomCountryIndex].name; //the list of countries are unique, not duplicated
+    if (!countries.includes(currentCounty)) {
+      countries.push(currentCounty);
+    }
+  }
+  console.log(countries);
+  return countries;
+}
+
+function getAnswerButtons(initialCountry) {
+  console.log(initialCountry);
+  let countries = preparedAnswers(initialCountry);
+  document.querySelectorAll('.answer-button').forEach((button, index) => {
+    button.innerHTML = countries[index];
+  });
+}
+
+startGame();
