@@ -23,3 +23,24 @@ function getRandomCountry() {
   let randomCountry = Math.floor(Math.random() * countries.length);
   return countries[randomCountry];
 }
+
+const answerBtn = document.querySelectorAll('#answer-buttons .button');
+const nextBtn = document.getElementById('next');
+let displayedCountry;
+
+answerBtn.forEach((button) => {
+  button.addEventListener('mouseover', (event) => {
+    event.target.style.backgroundColor = 'hsl(0, 0%, 40%)';
+  });
+});
+answerBtn.forEach((button) => {
+  button.addEventListener('mouseout', (event) => {
+    event.target.style.backgroundColor = 'hsl(0, 0%, 60%)';
+  });
+});
+/**
+ * Function to verify the selected answer by user
+ */
+function verifyAnswer() {
+  console.log(`The user selected ${country.code}`);
+}
