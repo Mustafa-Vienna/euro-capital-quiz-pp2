@@ -84,8 +84,20 @@ function preparedAnswers(initialCountry) {
       countries.push(currentCounty);
     }
   }
+  // Here i need to shuffle the counties
   console.log(countries);
-  return countries;
+  return shuffleCountries(countries);
+}
+
+//
+function shuffleCountries(array) {
+  let i = array.length;
+  while (i != 0) {
+    let randomIndex = Math.floor(Math.random() * i);
+    i--;
+    [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+  }
+  return array;
 }
 
 function getAnswerButtons(initialCountry) {
