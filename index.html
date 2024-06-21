@@ -44,13 +44,13 @@
   <!-- Quiz Box-->
   <div class="quiz-box">
     <header>
-      <div class="titile">Welcome to EU Capital Flag Quiz! <i class="fa-solid fa-award"></i></div>
+      <div class="title">EU Capital Flag Quiz! <i class="fa-solid fa-award"></i></div>
       <div class="timer">
         <div class="time-text">Time Left</div>
         <div class="timer-sec">15</div>
       </div>
     </header>
-    <div id="flag-display">
+    <div class="flag-display">
       <img id="flag-image" src="https://flagcdn.com/h160/''.png" alt="Flag">
     </div>
     <section>
@@ -69,16 +69,17 @@
     <footer>
       <div class="total-que">
         <div>
-          <p>2</p>of<p>10</p>Questions
+          <span>2</span>of<span>10</span>Questions
         </div>
       </div>
-      <div class="next-btn">Next Flag</div>
+      <button class="next-btn">Next Flag</button>
+      <div class="result">
+        <p class="score">Score: <span id="correct-count">0</span></p>
+        <p class="score">Misses: <span id="incorrect-count">0</span></p>
+      </div>
     </footer>
   </div>
-  <div class="result">
-    <p class="score">Score: <span id="correct-count">0</span></p>
-    <p class="score">Misses: <span id="incorrect-count">0</span></p>
-  </div>
+
   <script src="assets/js/script.js"></script>
   <!-- Font Awesome kit -->
   <script src="https://kit.fontawesome.com/ef3b9e6deb.js" crossorigin="anonymous"></script>
