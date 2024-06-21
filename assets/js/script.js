@@ -68,20 +68,13 @@ function verifyAnswer(rightAnswer, userAnswer) {
   if (userAnswer === rightAnswer) {
     correctCountValue += 1;
     correctCount.innerText = correctCountValue;
-    document.getElementById('correct-count').innerText = correctCountValue;
-    console.log('right ');
+    console.log('right');
   } else {
     incorrectCountValue += 1;
     incorrectCount.innerText = incorrectCountValue;
-    document.getElementById('incorrect-count').innerText = correctCountValue;
     console.log('wrong');
   }
 }
-
-// function userSelect(button) {
-//   const userAnswer = button.innerText;
-//   verifyAnswer(userAnswer);
-// }
 
 // This function is trigged when the mouse pointer moves over the answer buttons
 // It changes the background color of the buttons to highlight it
@@ -108,20 +101,18 @@ function preparedAnswers(initialCountry) {
     countries.push(initialCountry);
     while (countries.length < 4) {
       // Generates a random number between 0 and 26 (countries array have 27 items)
-      const randomCountryIndex = Math.floor(Math.random() * 27);
-      //the list of countries are unique, not duplicated
-      let currentCounty = countriesList[randomCountryIndex].name;
-      if (!countries.includes(currentCounty)) {
-        countries.push(currentCounty);
+      const randomCountryIndex = Math.floor(
+        Math.random() * countriesList.length
+      );
+      let currentCountry = countriesList[randomCountryIndex].name;
+      if (!countries.includes(currentCountry)) {
+        countries.push(currentCountry);
       }
     }
-    // Here i need to shuffle the counties
-    console.log(countries);
     return shuffleCountries(countries);
   }
 }
 
-//
 function shuffleCountries(array) {
   let i = array.length;
   while (i !== 0) {
@@ -131,27 +122,6 @@ function shuffleCountries(array) {
   }
   return array;
 }
-// function getAnswerButtons(initialCountry) {
-//   let countries = preparedAnswers(initialCountry);
-//   const answerButtons = document.querySelectorAll('.answer-button');
-
-//   answerButtons.forEach((button, index) => {
-//     button.innerHTML = countries[index];
-//   });
-//   answerButtons.forEach((button) => {
-//     let buttonValue = button.innerText;
-//     button.addEventListener('click', () =>
-//       verifyAnswerHandler(initialCountry, buttonValue)
-//     );
-//     return button.removeEventListener('click', verifyAnswerHandler);
-//   });
-// }
-
-// function verifyAnswerHandler(initialCountry, buttonValue) {
-//   if (initialCountry) {
-//     verifyAnswer(initialCountry, buttonValue);
-//   }
-// }
 
 function getAnswerButtons(initialCountry) {
   let countries = preparedAnswers(initialCountry);
@@ -159,39 +129,37 @@ function getAnswerButtons(initialCountry) {
 
   if (countries && countries.length) {
     answerButtons.forEach((button, index) => {
-      // Set button text
       button.innerHTML = countries[index];
 
-      // Create a new event handler for each button
-      const clickHandler = (event) => {
-        verifyAnswerHandler(initialCountry, event.target.innerText);
-      };
-
       // Remove any previous click handlers
-      button.removeEventListener('click', clickHandler);
-      // Add the new click handler
-      button.addEventListener('click', clickHandler);
+      button.replaceWith(button.cloneNode(true));
+      button = document.querySelectorAll('.answer-button')[index];
+
+      // Create a new event handler for each button
+      button.addEventListener('click', () => {
+        verifyAnswer(initialCountry, button.innerText);
+      });
     });
   }
 }
 
-function verifyAnswerHandler(initialCountry, buttonValue) {
-  if (initialCountry) {
-    verifyAnswer(initialCountry, buttonValue);
-  }
-}
-
 document.getElementById('next').addEventListener('click', nextGame);
-function nextGame() {
-  // gamesCount starts with one, because we already have staring game when the application loads
-  let gamesCount = 1;
-  while (gamesCount <= 10) {
-    initGame();
-    gamesCount++;
-  }
-  console.log('next game will start');
-}
 
-// const nextBtn = document.getElementById('next');
-// let displayedCountry;
-startGame();
+function nextGame() {
+  const correctCount = parseInt(
+    document.getElementById('correct-count').innerText
+  );
+  const incorrectCount = parseInt(
+    document.getElementById('incorrect-count').innerText
+  );
+  if (correctCount + incorrectCount >= 10) {
+    console.log('Game over. No more rounds.');
+    return;
+  }
+  const nextCountry = getStartingCountry();
+  document.getElementById(
+    'flag-image'
+  ).src = `https://flagcdn.com/h160/${nextCountry.code}.png`;
+  startGame(nextCountry.name);
+  console.log('Next game will start');
+}
