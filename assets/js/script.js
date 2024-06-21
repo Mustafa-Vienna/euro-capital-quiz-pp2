@@ -1,11 +1,6 @@
 // Wait for the DOM to finish loading before running the game
 document.addEventListener('DOMContentLoaded', initGame);
 
-// Declare initial variables
-let correctCount = 0;
-let incorrectCount = 0;
-let timeRemain = 15; // set countdown time to 15 seconds
-
 function initGame() {
   let startingCountry = getStartingCountry();
   document.getElementById(
@@ -55,20 +50,31 @@ function getStartingCountry() {
  * Function to verify the selected answer by user
  */
 
-// let startingCountry;
-let isExist = true;
 function verifyAnswer(rightAnswer, userAnswer) {
   // console.log(`The user selected ${country.code}`);
-  if (!isExist) return;
-  console.log(rightAnswer);
+  // Declare initial variables
+
+  //
+  const correctCount = document.getElementById('correct-count');
+  const incorrectCount = document.getElementById('incorrect-count'); //
+
+  let correctCountValue = parseInt(correctCount.innerText);
+  let incorrectCountValue = parseInt(incorrectCount.innerText);
+
+  let isGameOver = correctCountValue + incorrectCountValue >= 10;
+  let timeRemain = 15; // set countdown time to 15 seconds
+  if (isGameOver) return; //Do something when the game is over
+  console.log('rightAnswer');
   if (userAnswer === rightAnswer) {
-    correctCount++;
-    document.getElementById('correct-count').innerText = correctCount;
+    correctCountValue += 1;
+    correctCount.innerText = correctCountValue;
+    document.getElementById('correct-count').innerText = correctCountValue;
     console.log('right ');
   } else {
-    incorrectCount++;
-    document.getElementById('incorrect-count').innerText = correctCount;
-    console.log('in');
+    incorrectCountValue += 1;
+    incorrectCount.innerText = incorrectCountValue;
+    document.getElementById('incorrect-count').innerText = correctCountValue;
+    console.log('wrong');
   }
 }
 
@@ -77,13 +83,9 @@ function verifyAnswer(rightAnswer, userAnswer) {
 //   verifyAnswer(userAnswer);
 // }
 
-let answerBtn = document.querySelectorAll('#answer-buttons .button');
-const nextBtn = document.getElementById('next');
-let displayedCountry;
-
 // This function is trigged when the mouse pointer moves over the answer buttons
 // It changes the background color of the buttons to highlight it
-
+let answerBtn = document.querySelectorAll('#answer-buttons .button');
 answerBtn.forEach((button) => {
   button.addEventListener('mouseover', (event) => {
     event.target.style.backgroundColor = 'hsl(0, 0%, 40%)';
@@ -104,59 +106,79 @@ function preparedAnswers(initialCountry) {
   console.log(initialCountry);
   if (initialCountry) {
     countries.push(initialCountry);
-  }
-
-  while (countries.length < 4) {
-    // Generates a random number between 0 and 26 (countries array have 27 items)
-    const randomCountryIndex = Math.floor(Math.random() * 27);
-    //the list of countries are unique, not duplicated
-    let currentCounty = countriesList[randomCountryIndex].name;
-    if (!countries.includes(currentCounty)) {
-      countries.push(currentCounty);
+    while (countries.length < 4) {
+      // Generates a random number between 0 and 26 (countries array have 27 items)
+      const randomCountryIndex = Math.floor(Math.random() * 27);
+      //the list of countries are unique, not duplicated
+      let currentCounty = countriesList[randomCountryIndex].name;
+      if (!countries.includes(currentCounty)) {
+        countries.push(currentCounty);
+      }
     }
+    // Here i need to shuffle the counties
+    console.log(countries);
+    return shuffleCountries(countries);
   }
-  // Here i need to shuffle the counties
-  console.log(countries);
-  return shuffleCountries(countries);
 }
 
 //
 function shuffleCountries(array) {
   let i = array.length;
-  while (i != 0) {
+  while (i !== 0) {
     let randomIndex = Math.floor(Math.random() * i);
     i--;
     [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
   }
   return array;
 }
+// function getAnswerButtons(initialCountry) {
+//   let countries = preparedAnswers(initialCountry);
+//   const answerButtons = document.querySelectorAll('.answer-button');
+
+//   answerButtons.forEach((button, index) => {
+//     button.innerHTML = countries[index];
+//   });
+//   answerButtons.forEach((button) => {
+//     let buttonValue = button.innerText;
+//     button.addEventListener('click', () =>
+//       verifyAnswerHandler(initialCountry, buttonValue)
+//     );
+//     return button.removeEventListener('click', verifyAnswerHandler);
+//   });
+// }
+
+// function verifyAnswerHandler(initialCountry, buttonValue) {
+//   if (initialCountry) {
+//     verifyAnswer(initialCountry, buttonValue);
+//   }
+// }
+
 function getAnswerButtons(initialCountry) {
   let countries = preparedAnswers(initialCountry);
   const answerButtons = document.querySelectorAll('.answer-button');
 
-  answerButtons.forEach((button, index) => {
-    button.innerHTML = countries[index];
-  });
-  answerButtons.forEach((button) => {
-    let buttonValue = button.innerText;
-    button.addEventListener('click', () => {
-      // console.log(initialCountry.name);
-      //
-      if (initialCountry) {
-        verifyAnswer(initialCountry, buttonValue);
-      }
+  if (countries && countries.length) {
+    answerButtons.forEach((button, index) => {
+      // Set button text
+      button.innerHTML = countries[index];
+
+      // Create a new event handler for each button
+      const clickHandler = (event) => {
+        verifyAnswerHandler(initialCountry, event.target.innerText);
+      };
+
+      // Remove any previous click handlers
+      button.removeEventListener('click', clickHandler);
+      // Add the new click handler
+      button.addEventListener('click', clickHandler);
     });
-  });
+  }
 }
 
-function incrementPositiveScore() {
-  let oldScore = parseInt(document.getElementById('correct-count').innerText);
-  document.getElementById('correct-count').innerText = ++oldScore;
-}
-
-function incrementNegativeScore() {
-  let oldScore = parseInt(document.getElementById('incorrect-count').innerText);
-  document.getElementById('incorrect-count').innerText = ++oldScore;
+function verifyAnswerHandler(initialCountry, buttonValue) {
+  if (initialCountry) {
+    verifyAnswer(initialCountry, buttonValue);
+  }
 }
 
 document.getElementById('next').addEventListener('click', nextGame);
@@ -170,4 +192,6 @@ function nextGame() {
   console.log('next game will start');
 }
 
+// const nextBtn = document.getElementById('next');
+// let displayedCountry;
 startGame();
