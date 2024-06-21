@@ -6,32 +6,135 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: var(--main-font-family);
 }
 
 /* Define custom fonts and color palette */
 :root {
   /* Fonts */
-  --font-family: 'Open Sans', sans-serif;
+  ---main-font-family: 'Open Sans', sans-serif;
   --heading-font: 'Roboto', sans-serif;
 
   /* Colors */
   --background-color: #96a0a0;
   --font-color: #3a3a3a;
-  --button-color: #f5f5f5;
+  --smoke-white: #f5f5f5;
   --button-bg: hsl(0, 0%, 60%);
   --quiz-container: #96a0a0;
+  --main-bg-color: hsl(240, 80%, 70%);
+  --main-bg-hover: hsl(240, 80%, 60%);
 }
 
 /* General style */
 body {
-  justify-content: center;
-  height: 100vh;
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  color: var(--font-color);
-  font-family: var(--font-family);
+  background-color: var(--main-bg-color);
 }
+
+.start-btn, 
+.info-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Start Quiz Button styling */
+.start-btn button{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--main-bg-color);
+  padding: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--smoke-white);
+  cursor: pointer;
+}
+
+.info-box {
+ /* display: none; */
+  width: 550px;
+  background-color: var(--smoke-white);
+  border-radius: 5px;
+}
+
+
+.info-box .info-title {
+  font: italic 1rem var(--heading-font);
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid var(--background-color);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.info-box .info-title .fa-exclamation {
+  color: red;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.info-box .info-list {
+  padding: 1rem 2rem;
+}
+
+.info-box .info-list .info {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.info-box .info-list .info span {
+  font-weight: 600;
+  color: var(--main-bg-color);
+}
+
+.info-box .info-list .info i {
+  color: red;
+  font-weight: 700;
+}
+
+.info-box .buttons {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 2rem;
+  border-top: 1px solid var(--background-color);
+}
+
+.info-box .buttons button {
+  margin: 0 5px;
+  height: 3rem;
+  width: 100px;
+  border: 1px solid var(--main-bg-color);
+  color: var(--smoke-white);
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.buttons button.restart {
+  color: var(--smoke-white);
+  background: var(--main-bg-color);
+}
+
+.buttons button.restart:hover {
+  background-color: var(--main-bg-hover);
+}
+
+.buttons button.quit {
+  color: var(--main-bg-color);
+}
+.buttons button.quit:hover {
+  color: var(--smoke-white);
+  background-color: var(--main-bg-color);
+}
+
+/*
 h1 {
   margin: 1rem auto;
 }
@@ -72,7 +175,7 @@ h2 {
   position: relative;
   padding: 1rem;
   margin: 8px;
-  box-shadow: 0 4px 6px var(--button-color);
+  box-shadow: 0 4px 6px var(--smoke-white);
   border-radius: 0.5rem;
   font-size: 1.3rem;
   cursor: pointer;
@@ -83,3 +186,4 @@ h2 {
   width: 70%;
   justify-content: center;
 }
+*/
