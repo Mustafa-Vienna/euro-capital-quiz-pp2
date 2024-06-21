@@ -65,12 +65,6 @@ answerBtn.forEach((button) => {
     event.target.style.backgroundColor = 'hsl(0, 0%, 60%)';
   });
 });
-/**
- * Function to verify the selected answer by user
- */
-function verifyAnswer() {
-  console.log(`The user selected ${country.code}`);
-}
 
 function preparedAnswers(initialCountry) {
   const countries = [];
@@ -106,6 +100,13 @@ function getAnswerButtons(initialCountry) {
   document.querySelectorAll('.answer-button').forEach((button, index) => {
     button.innerHTML = countries[index];
   });
+}
+
+/**
+ * Function to verify the selected answer by user
+ */
+function verifyAnswer() {
+  console.log(`The user selected ${country.code}`);
 }
 
 startGame();

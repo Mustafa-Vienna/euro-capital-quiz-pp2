@@ -78,3 +78,8 @@ h2 {
   cursor: pointer;
   background-color: var(--button-bg);
 }
+
+.answer-button {
+  width: 70%;
+  justify-content: center;
+}
