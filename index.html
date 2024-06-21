@@ -42,41 +42,43 @@
 
 
   <!-- Quiz Box-->
-  <!--
-  <h1>Welcome to EU Capital Flag Quiz! <i class="fa-solid fa-award"></i></h1>
-  <div class="quiz-container">
+  <div class="quiz-box">
+    <header>
+      <div class="titile">Welcome to EU Capital Flag Quiz! <i class="fa-solid fa-award"></i></div>
+      <div class="timer">
+        <div class="time-text">Time Left</div>
+        <div class="timer-sec">15</div>
+      </div>
+    </header>
     <div id="flag-display">
       <img id="flag-image" src="https://flagcdn.com/h160/''.png" alt="Flag">
     </div>
-    <div class="game-area">
-      <h2 id="question">Which country does this flag belong to?</h2>
-      <div id="answer-buttons">
+    <section>
+      <div class="question">
+        <span>Which country does this flag belong to?</span>
+      </div>
+      <div class="option-list">
+        <div><button class="button answer-button">Answer Button 1</button></div>
+        <div><button class="button answer-button">Answer Button 2</button></div>
+        <div><button class="button answer-button">Answer Button 3</button></div>
+        <div><button class="button answer-button">Answer Button 4</button></div>
+      </div>
+    </section>
+
+    <!-- Quiz Box Footer -->
+    <footer>
+      <div class="total-que">
         <div>
-          <button class="button answer-button">Answer Button 1</button>
-        </div>
-        <div>
-          <button class="button answer-button">Answer Button 2</button>
-        </div>
-        <div>
-          <button class="button answer-button">Answer Button 3</button>
-        </div>
-        <div>
-          <button class="button answer-button">Answer Button 4</button>
+          <p>2</p>of<p>10</p>Questions
         </div>
       </div>
-      <span id="timer">Timer</span>
-    </div>
-    <button id="next">Next</button>
-    <div class="result">
-      <p class="score">Score: <span id="correct-count">0</span></p>
-      <p class="score">Misses: <span id="incorrect-count">0</span></p>
-    </div>
+      <div class="next-btn">Next Flag</div>
+    </footer>
   </div>
-  <div class="rules">
-    <button class="game-rules">Game Rules</button>
-
+  <div class="result">
+    <p class="score">Score: <span id="correct-count">0</span></p>
+    <p class="score">Misses: <span id="incorrect-count">0</span></p>
   </div>
-  -->
   <script src="assets/js/script.js"></script>
   <!-- Font Awesome kit -->
   <script src="https://kit.fontawesome.com/ef3b9e6deb.js" crossorigin="anonymous"></script>

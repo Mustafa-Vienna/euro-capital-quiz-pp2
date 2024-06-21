@@ -52,7 +52,7 @@ body {
 }
 
 .info-box {
- /* display: none; */
+  display: none; 
   width: 550px;
   background-color: var(--smoke-white);
   border-radius: 5px;
