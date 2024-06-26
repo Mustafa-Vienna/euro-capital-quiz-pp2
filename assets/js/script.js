@@ -1,6 +1,12 @@
 // Wait for the DOM to finish loading before running the game
 document.addEventListener('DOMContentLoaded', initGame);
 
+// All required elements
+const startBtn = document.querySelector('.start-btn button');
+const infoBox = document.querySelector('.info-box');
+const quitBtn = document.querySelector('.buttons .quit');
+const reStartBtn = document.querySelector('.buttons .restart');
+
 function initGame() {
   let startingCountry = getStartingCountry();
   document.getElementById(
@@ -78,10 +84,10 @@ function verifyAnswer(rightAnswer, userAnswer) {
 
 // This function is trigged when the mouse pointer moves over the answer buttons
 // It changes the background color of the buttons to highlight it
-let answerBtn = document.querySelectorAll('#answer-buttons .button');
+let answerBtn = document.querySelectorAll('.option-list');
 answerBtn.forEach((button) => {
   button.addEventListener('mouseover', (event) => {
-    event.target.style.backgroundColor = 'hsl(0, 0%, 40%)';
+    event.target.style.backgroundColor = 'hsl(0, 0%, 86%)';
   });
 
   // This function is triggered when the mouse pointer leaves the specific buttons
@@ -89,7 +95,7 @@ answerBtn.forEach((button) => {
 });
 answerBtn.forEach((button) => {
   button.addEventListener('mouseout', (event) => {
-    event.target.style.backgroundColor = 'hsl(0, 0%, 60%)';
+    event.target.style.backgroundColor = 'hsl(0, 0%, 96%)';
   });
 });
 

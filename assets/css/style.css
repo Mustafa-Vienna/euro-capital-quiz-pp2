@@ -18,9 +18,8 @@
   /* Colors */
   --background-color: #96a0a0;
   --font-color: #3a3a3a;
-  --smoke-white: #f5f5f5;
-  --button-bg: hsla(19, 61%, 93%, 0.686);
-  --quiz-container: #96a0a0;
+  --smoke-white: hsl(0, 0%, 96%);
+  --button-bg: rgba(209, 209, 250, 0.85);
   --tomato-color: hsl(9, 100%, 64%);
   --box-shadow: #33333319;
   --main-bg-color: hsl(240, 80%, 70%);
@@ -33,7 +32,7 @@ body {
   background-color: var(--main-bg-color);
 }
 
-.start-btn, 
+.start-btn,
 .info-box,
 .quiz-box,
 .result-box {
@@ -41,12 +40,12 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-              0 6px 20px 0 rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0px 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Start Quiz Button styling */
-.start-btn button{
+.start-btn button {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--main-bg-color);
@@ -67,12 +66,11 @@ body {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-
 .info-box .info-title {
   font: italic 1rem var(--heading-font);
   height: 70px;
   width: 100%;
-  border-bottom: 1px solid var(--background-color);
+  border-bottom: 1px solid var(--smoke-white);
   display: flex;
   align-items: center;
   padding: 0 2rem;
@@ -111,7 +109,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   padding: 0 2rem;
-  border-top: 1px solid var(--background-color);
+  border-top: 1px solid var(--button-bg);
 }
 
 .info-box .buttons button {
@@ -143,6 +141,7 @@ body {
   background-color: var(--main-bg-color);
 }
 
+/* Quiz Box Styling */
 .quiz-box {
   width: 540px;
   background: var(--smoke-white);
@@ -224,13 +223,13 @@ body {
   font-weight: 600;
 }
 
-.quiz-box section .option-list{
+.quiz-box section .option-list {
   padding-top: 1.4rem;
   display: block;
+  background: var(--smoke-white);
 }
 
 section .option-list .button {
-  background-color: var(--button-bg);
   border: 1px solid var(--font-color);
   border-radius: 5px;
   padding: 0.5rem 1rem;
@@ -303,7 +302,7 @@ footer .next-btn {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-.result-box .icon   {
+.result-box .icon {
   font-size: 100px;
   color: gold;
   margin-bottom: 1rem;
@@ -315,7 +314,7 @@ footer .next-btn {
   margin-bottom: 1rem;
 }
 
-.result-box .score-text span{
+.result-box .score-text span {
   display: flex;
   font-size: 20px;
   margin: 10px 0;
