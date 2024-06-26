@@ -132,9 +132,10 @@ function getAnswerButtons(initialCountry) {
   }
 }
 
-document.getElementById('next').addEventListener('click', nextGame);
+document.getElementById('next-btn').addEventListener('click', nextQuestion);
 
-function nextGame() {
+function nextQuestion() {
+  console.log('next question will work');
   const correctCount = parseInt(
     document.getElementById('correct-count').innerText
   );
