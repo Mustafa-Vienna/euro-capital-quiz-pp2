@@ -4,8 +4,25 @@ document.addEventListener('DOMContentLoaded', initGame);
 // All required elements
 const startBtn = document.querySelector('.start-btn button');
 const infoBox = document.querySelector('.info-box');
-const quitBtn = document.querySelector('.buttons .quit');
-const reStartBtn = document.querySelector('.buttons .restart');
+const exitBtn = infoBox.querySelector('.buttons .quit');
+const continueBtn = infoBox.querySelector('.buttons .restart');
+const quizBox = document.querySelector('.quiz-box');
+
+// When the Start button clicked, it will display the info box
+startBtn.onclick = () => {
+  infoBox.classList.add('active');
+};
+
+// When the Exit button clicked, it will hide the info box
+exitBtn.onclick = () => {
+  infoBox.classList.remove('active');
+};
+
+// When the Continue button clicked
+continueBtn.onclick = () => {
+  infoBox.classList.remove('active'); // Hide the info box
+  quizBox.classList.add('activeQuiz'); //Show the Quiz
+};
 
 function initGame() {
   let startingCountry = getStartingCountry();
