@@ -82,23 +82,6 @@ function verifyAnswer(rightAnswer, userAnswer) {
   }
 }
 
-// This function is trigged when the mouse pointer moves over the answer buttons
-// It changes the background color of the buttons to highlight it
-let answerBtn = document.querySelectorAll('.option-list');
-answerBtn.forEach((button) => {
-  button.addEventListener('mouseover', (event) => {
-    event.target.style.backgroundColor = 'hsl(0, 0%, 86%)';
-  });
-
-  // This function is triggered when the mouse pointer leaves the specific buttons
-  // It changes the background color of the button to its original state
-});
-answerBtn.forEach((button) => {
-  button.addEventListener('mouseout', (event) => {
-    event.target.style.backgroundColor = 'hsl(0, 0%, 96%)';
-  });
-});
-
 function preparedAnswers(initialCountry) {
   const countries = [];
   // Add initial country to the countries array

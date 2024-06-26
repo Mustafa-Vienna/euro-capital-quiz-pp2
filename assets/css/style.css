@@ -168,6 +168,9 @@ body {
   font-weight: 600;
 }
 
+.quiz-box header .title i {
+  color: goldenrod;
+}
 .quiz-box header .timer {
   display: flex;
   align-items: center;
@@ -219,14 +222,13 @@ body {
 }
 
 .quiz-box section .question {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
 .quiz-box section .option-list {
   padding-top: 1.4rem;
   display: block;
-  background: var(--smoke-white);
 }
 
 section .option-list .button {
@@ -241,6 +243,10 @@ section .option-list .button {
   width: 220px;
   font-size: 1rem;
   cursor: pointer;
+}
+
+.option-list .button:hover {
+  background: hsl(0, 0%, 86%);
 }
 
 .quiz-box footer {
