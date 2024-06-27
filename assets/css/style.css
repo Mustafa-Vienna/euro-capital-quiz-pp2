@@ -64,7 +64,8 @@
 }
 
 .info-box {
-  width: 550px;
+  width: 100%;
+  max-width: 550px;
   background-color: var(--smoke-white);
   border-radius: 5px;
   opacity: 0;
@@ -111,8 +112,8 @@
 }
 
 .info-box .buttons {
-  height: 60px;
   display: flex;
+  gap: 2rem;
   align-items: center;
   justify-content: flex-end;
   padding: 0 2rem;
@@ -124,6 +125,7 @@
   height: 3rem;
   width: 100px;
   outline: none;
+  margin: 1.5rem 0;
   border: 1px solid var(--main-bg-color);
   color: var(--smoke-white);
   border-radius: 5px;
@@ -168,8 +170,6 @@
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
-  border-radius: 5px 5px 0 0;
-  box-shadow: 0 3px 5px 1px var(--box-shadow);
 }
 
 .quiz-box .header-wrapper .title {
