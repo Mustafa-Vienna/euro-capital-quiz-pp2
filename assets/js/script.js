@@ -1,6 +1,7 @@
 // Wait for the DOM to finish loading before running the game
 document.addEventListener('DOMContentLoaded', initGame);
 
+document.getElementById('next-btn').addEventListener('click', nextQuestion);
 // All required elements
 const startBtn = document.querySelector('.start-btn button');
 const infoBox = document.querySelector('.info-box');
@@ -64,6 +65,7 @@ const countriesList = [
 // Function to get a random country from the countries array
 function startGame(startingCountry) {
   getAnswerButtons(startingCountry);
+  answerButtonsState(false);
 }
 function getStartingCountry() {
   let randomCountry = Math.floor(Math.random() * countriesList.length);
@@ -76,8 +78,6 @@ function getStartingCountry() {
 function verifyAnswer(rightAnswer, userAnswer) {
   // console.log(`The user selected ${country.code}`);
   // Declare initial variables
-
-  //
   const correctCount = document.getElementById('correct-count');
   const incorrectCount = document.getElementById('incorrect-count'); //
 
@@ -87,16 +87,21 @@ function verifyAnswer(rightAnswer, userAnswer) {
   let isGameOver = correctCountValue + incorrectCountValue >= 10;
   let timeRemain = 15; // set countdown time to 15 seconds
   if (isGameOver) return; //Do something when the game is over
-  console.log('rightAnswer');
+  // console.log('rightAnswer');
   if (userAnswer === rightAnswer) {
     correctCountValue += 1;
     correctCount.innerText = correctCountValue;
-    console.log('right');
+    // console.log('right');
   } else {
     incorrectCountValue += 1;
     incorrectCount.innerText = incorrectCountValue;
-    console.log('wrong');
+    // console.log('wrong');
   }
+  answerButtonsState(true);
+  return rightAnswer === userAnswer;
+  // changeButtonsBackground(rightAnswer);
+  // Returning a boolean, check if it is a right answer
+  // return userAnswer === rightAnswer;
 }
 
 function preparedAnswers(initialCountry) {
@@ -130,26 +135,41 @@ function shuffleCountries(array) {
 }
 
 function getAnswerButtons(initialCountry) {
-  let countries = preparedAnswers(initialCountry);
+  const rightAnswer = initialCountry;
+  let countries = preparedAnswers(rightAnswer);
   const answerButtons = document.querySelectorAll('.answer-button');
 
   if (countries && countries.length) {
     answerButtons.forEach((button, index) => {
-      button.innerHTML = countries[index];
+      // Remove the 'right-answer' class and set button text
+      button.classList.remove('right-answer');
+      button.innerText = countries[index];
 
-      // Remove any previous click handlers
-      button.replaceWith(button.cloneNode(true));
-      button = document.querySelectorAll('.answer-button')[index];
+      // Remove existing event listeners
+      let newButton = button.cloneNode(true);
+      button.parentNode.replaceChild(newButton, button);
 
-      // Create a new event handler for each button
-      button.addEventListener('click', () => {
-        verifyAnswer(initialCountry, button.innerText);
+      // Add new event listener
+      newButton.addEventListener('click', function () {
+        handleAnswerClick(newButton, rightAnswer);
       });
     });
   }
 }
 
-document.getElementById('next-btn').addEventListener('click', nextQuestion);
+function handleAnswerClick(button, rightAnswer) {
+  const isCorrect = verifyAnswer(rightAnswer, button.innerText);
+  if (isCorrect) {
+    button.classList.add('right-answer');
+    console.log('This is the right button');
+  } else {
+    console.log('This is the wrong button');
+  }
+  // Disable all buttons to prevent multiple clicks
+  answerButtonsState(true);
+  // Highlight the correct answer
+  changeButtonsBackground(rightAnswer);
+}
 
 function nextQuestion() {
   console.log('next question will work');
@@ -169,4 +189,21 @@ function nextQuestion() {
   ).src = `https://flagcdn.com/h160/${nextCountry.code}.png`;
   startGame(nextCountry.name);
   console.log('Next game will start');
+}
+
+// Toggle the state (enabled / disabled) of the option buttons
+function answerButtonsState(state) {
+  const buttons = document.querySelectorAll('.answer-button');
+  buttons.forEach((button) => {
+    button.disabled = state;
+  });
+}
+
+function changeButtonsBackground(rightAnswer) {
+  const buttons = document.querySelectorAll('.answer-button');
+  buttons.forEach((button) => {
+    if (button.innerHTML === rightAnswer) {
+      button.classList.add('right-answer');
+    }
+  });
 }

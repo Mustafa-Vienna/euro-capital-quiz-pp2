@@ -254,6 +254,14 @@ section .option-list .answer-button {
   background: hsl(0, 0%, 86%);
 }
 
+.right-answer {
+  background: green;
+}
+
+.wrong-answer {
+  background: red;
+}
+
 /* Quiz Footer */
 .quiz-box footer {
   height: 65px;
