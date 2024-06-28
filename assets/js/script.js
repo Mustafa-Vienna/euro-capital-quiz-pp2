@@ -131,7 +131,6 @@ function checkTimeHandler() {
   }
   let timeRemain = 6; // set countdown time to 6 seconds
   const timeCounterElement = document.querySelector('.timer-sec');
-  console.log('timer Start');
   // Set the timer to decrease timeRemain every second
   timer = setInterval(function () {
     if (timeRemain > 0) {
@@ -153,8 +152,6 @@ function checkTimeHandler() {
     }
     timeCounterElement.innerText = timeRemain;
   }, 1000);
-
-  console.log('timer should stop');
 }
 
 function gameOverHandler(correctCount, incorrectCount) {
@@ -163,7 +160,6 @@ function gameOverHandler(correctCount, incorrectCount) {
   let isGameOver = correctCountValue + incorrectCountValue >= 10;
 
   if (isGameOver) {
-    console.log('Game over');
     // Change the text of the next button to "Game Over"
     const nextBtn = document.getElementById('next-btn');
     nextBtn.innerText = 'Game Over!';
@@ -232,10 +228,8 @@ function handleAnswerClick(button, rightAnswer) {
   const isCorrect = verifyAnswerHandler(rightAnswer, button.innerText);
   if (isCorrect) {
     button.classList.add('right-answer');
-    console.log('This is the right button');
   } else {
     button.classList.add('wrong-answer');
-    console.log('This is the wrong button');
   }
   // Disable all buttons to prevent multiple clicks
   answerButtonsState(true);
@@ -251,7 +245,6 @@ function nextQuestion() {
     document.getElementById('incorrect-count').innerText
   );
   if (correctCount + incorrectCount >= 10) {
-    console.log('Game over. No more rounds.');
     return;
   }
   const nextCountry = getStartingCountry();
@@ -259,7 +252,6 @@ function nextQuestion() {
     'flag-image'
   ).src = `https://flagcdn.com/h160/${nextCountry.code}.png`;
   startGame(nextCountry.name);
-  console.log('Next game will start');
   // disable the next button until the user selects an answer
   document.getElementById('next-btn').disabled = true;
 }
