@@ -273,6 +273,17 @@ const resultBox = document.querySelector('.result-box');
 const restartQuiz = resultBox.querySelector('.buttons .restart');
 const exitQuiz = resultBox.querySelector('.buttons .quit');
 
+restartQuiz.onclick = () => {
+  resultBox.classList.remove('activeResult'); //Hide the result box
+  infoBox.classList.remove('active'); // Hide the info box
+  quizBox.classList.add('activeQuiz'); //Show the Quiz
+  initGame();
+};
+
+exitQuiz.onclick = () => {
+  window.location.reload();
+};
+
 let userScore = 0;
 function showResultBox() {
   infoBox.classList.remove('active'); // Hide the info box
