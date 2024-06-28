@@ -86,7 +86,7 @@ function verifyAnswerHandler(rightAnswer, userAnswer) {
   setAnswerCount(rightAnswer, userAnswer, correctCount, incorrectCount);
 
   // Update played rounds count
-  setPlayedRounds();
+  setRoundsLeft();
 
   // Disable all buttons to prevent multiple clicks
   answerButtonsState(true);
@@ -114,16 +114,22 @@ function setAnswerCount(rightAnswer, userAnswer, correctCount, incorrectCount) {
   }
 }
 
-function setPlayedRounds() {
-  const playedRounds = document.getElementById('rounds-count');
-  let playedRoundsValue = parseInt(playedRounds.innerText);
+function setRoundsLeft() {
+  const roundsLeft = document.getElementById('rounds-count');
+  let roundsLeftValue = parseInt(roundsLeft.innerText);
 
-  playedRoundsValue += 1;
-  playedRounds.innerText = playedRoundsValue;
+  if (roundsLeftValue > 0) {
+    roundsLeftValue--;
+
+    roundsLeft.innerText = roundsLeftValue;
+  }
 }
 
 function checkTimeHandler() {
-  let timeRemain = 6; // set countdown time to 15 seconds
+  if (timer) {
+    clearInterval(timer); // Clear any existing timer before starting a new one
+  }
+  let timeRemain = 6; // set countdown time to 6 seconds
   const timeCounterElement = document.querySelector('.timer-sec');
   console.log('timer Start');
   // Set the timer to decrease timeRemain every second
@@ -138,13 +144,14 @@ function checkTimeHandler() {
       incorrectCountValue += 1;
       incorrectCount.innerText = incorrectCountValue;
 
-      // Move to the next question
-      nextQuestion();
+      if (!didUserChoose) {
+        setRoundsLeft();
+
+        // Move to the next question
+        nextQuestion();
+      }
     }
     timeCounterElement.innerText = timeRemain;
-    if (!didUserChoose && timeRemain === 0) {
-      setPlayedRounds();
-    }
   }, 1000);
 
   console.log('timer should stop');
