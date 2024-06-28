@@ -261,10 +261,22 @@ section .option-list .answer-button {
 
 .right-answer {
   background: green;
+  color: var(--smoke-white);
+}
+
+.right-answer:hover {
+  /* Necessary to override conflicting styles */
+  background: green !important;
 }
 
 .wrong-answer {
   background: red;
+  color: var(--smoke-white);
+}
+
+.wrong-answer:hover {
+  /* Necessary to override conflicting styles */
+  background: red !important;
 }
 
 /* Quiz Footer */
