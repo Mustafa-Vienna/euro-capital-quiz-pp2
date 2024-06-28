@@ -1,13 +1,12 @@
-// Wait for the DOM to finish loading before running the game
-document.addEventListener('DOMContentLoaded', initGame);
-
 document.getElementById('next-btn').addEventListener('click', nextQuestion);
 // All required elements
 const startBtn = document.querySelector('.start-btn button');
 const infoBox = document.querySelector('.info-box');
 const exitBtn = infoBox.querySelector('.buttons .quit');
-const continueBtn = infoBox.querySelector('.buttons .restart');
+const startGameBtn = infoBox.querySelector('.buttons .start-game');
 const quizBox = document.querySelector('.quiz-box');
+let timer; // Declare a global timer variable
+let didUserChoose; //Store state to check if the user picked any choose
 
 // When the Start button clicked, it will display the info box
 startBtn.onclick = () => {
@@ -20,9 +19,10 @@ exitBtn.onclick = () => {
 };
 
 // When the Continue button clicked
-continueBtn.onclick = () => {
+startGameBtn.onclick = () => {
   infoBox.classList.remove('active'); // Hide the info box
   quizBox.classList.add('activeQuiz'); //Show the Quiz
+  initGame();
 };
 
 function initGame() {
@@ -67,6 +67,8 @@ const countriesList = [
 // Function to get a random country from the countries array
 function startGame(startingCountry) {
   getAnswerButtons(startingCountry);
+  didUserChoose = false; //Reset user choose state
+  checkTimeHandler(); // Start the timer for the round
   answerButtonsState(false);
 }
 function getStartingCountry() {
@@ -90,7 +92,7 @@ function verifyAnswerHandler(rightAnswer, userAnswer) {
   answerButtonsState(true);
 
   // Timer handler
-  checkTimeHandler();
+  clearTimeout(timer); // Clear the timer if the user selects an answer
 
   // Check if the game is over
   gameOverHandler(correctCount, incorrectCount);
@@ -121,9 +123,31 @@ function setPlayedRounds() {
 }
 
 function checkTimeHandler() {
-  let timeRemain = 15; // set countdown time to 15 seconds
+  let timeRemain = 6; // set countdown time to 15 seconds
+  const timeCounterElement = document.querySelector('.timer-sec');
+  console.log('timer Start');
+  // Set the timer to decrease timeRemain every second
+  timer = setInterval(function () {
+    if (timeRemain > 0) {
+      timeRemain--;
+    } else {
+      // If time runs out
+      clearInterval(timer);
+      const incorrectCount = document.getElementById('incorrect-count');
+      let incorrectCountValue = parseInt(incorrectCount.innerText);
+      incorrectCountValue += 1;
+      incorrectCount.innerText = incorrectCountValue;
 
-  // TODO: Implement countdown timer
+      // Move to the next question
+      nextQuestion();
+    }
+    timeCounterElement.innerText = timeRemain;
+    if (!didUserChoose && timeRemain === 0) {
+      setPlayedRounds();
+    }
+  }, 1000);
+
+  console.log('timer should stop');
 }
 
 function gameOverHandler(correctCount, incorrectCount) {
@@ -190,6 +214,7 @@ function getAnswerButtons(initialCountry) {
 
       // Add new event listener
       newButton.addEventListener('click', function () {
+        didUserChoose = true;
         handleAnswerClick(newButton, rightAnswer);
       });
     });
