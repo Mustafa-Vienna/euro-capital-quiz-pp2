@@ -175,10 +175,13 @@
 .quiz-box .header-wrapper .title {
   font-size: 1rem;
   font-weight: 600;
+  margin-left: 1.5rem;
 }
 
 .quiz-box .header-wrapper .title i {
   color: goldenrod;
+  margin-left: 1rem;
+  font-size: 1.5rem;
 }
 .quiz-box .header-wrapper .timer {
   display: flex;
@@ -190,6 +193,7 @@
   border: var(--background-color);
   border-radius: 5px;
   padding: 0 10px;
+  margin-right: 1.5rem;
 }
 
 .quiz-box .header-wrapper .timer .time-text {
@@ -199,10 +203,9 @@
 .quiz-box .header-wrapper .timer .timer-sec {
   font-size: 1.2rem;
   font-weight: 600;
-  background: var(--background-color);
   height: 2rem;
   width: 3rem;
-  color: var(--tomato-color);
+  color: var(--main-bg-color);
   text-align: center;
   line-height: 32px;
   border-radius: 5px;
@@ -274,6 +277,7 @@ section .option-list .answer-button {
 .quiz-box footer .total-que div {
   display: flex;
   user-select: none;
+  margin-left: 1rem;
 }
 
 .quiz-box footer .total-que span {
@@ -290,6 +294,7 @@ footer #next-btn {
   border-radius: 5px;
   border: var(--box-shadow);
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 .result .score {
