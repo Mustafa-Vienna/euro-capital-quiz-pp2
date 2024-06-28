@@ -8,6 +8,9 @@ const infoBox = document.querySelector('.info-box');
 const exitBtn = infoBox.querySelector('.buttons .quit');
 const continueBtn = infoBox.querySelector('.buttons .restart');
 const quizBox = document.querySelector('.quiz-box');
+const correctCountElement = document.getElementById('correct-count');
+const incorrectCountElement = document.getElementById('incorrect-count');
+const questionCounterElement = document.querySelector('.total-que span');
 
 // When the Start button clicked, it will display the info box
 startBtn.onclick = () => {
@@ -23,6 +26,8 @@ exitBtn.onclick = () => {
 continueBtn.onclick = () => {
   infoBox.classList.remove('active'); // Hide the info box
   quizBox.classList.add('activeQuiz'); //Show the Quiz
+  queCount = 0; //reset question count
+  initGame(); //start the game
 };
 
 function initGame() {
@@ -31,6 +36,10 @@ function initGame() {
     'flag-image'
   ).src = `https://flagcdn.com/h160/${startingCountry.code}.png`;
   startGame(startingCountry.name);
+  correctCountElement.innerText = 0;
+  incorrectCountElement = 0;
+  queCount = 0;
+  nextQuestion();
 }
 const countriesList = [
   { code: 'at', name: 'Austria' },
@@ -74,7 +83,6 @@ function getStartingCountry() {
 /**
  * Function to verify the selected answer by user
  */
-
 function verifyAnswer(rightAnswer, userAnswer) {
   // console.log(`The user selected ${country.code}`);
   // Declare initial variables
@@ -85,7 +93,6 @@ function verifyAnswer(rightAnswer, userAnswer) {
   let incorrectCountValue = parseInt(incorrectCount.innerText);
 
   let isGameOver = correctCountValue + incorrectCountValue >= 10;
-  let timeRemain = 15; // set countdown time to 15 seconds
   if (isGameOver) return; //Do something when the game is over
   // console.log('rightAnswer');
   if (userAnswer === rightAnswer) {
@@ -107,7 +114,6 @@ function verifyAnswer(rightAnswer, userAnswer) {
 function preparedAnswers(initialCountry) {
   const countries = [];
   // Add initial country to the countries array
-  console.log(initialCountry);
   if (initialCountry) {
     countries.push(initialCountry);
     while (countries.length < 4) {
@@ -172,7 +178,6 @@ function handleAnswerClick(button, rightAnswer) {
 }
 
 function nextQuestion() {
-  console.log('next question will work');
   const correctCount = parseInt(
     document.getElementById('correct-count').innerText
   );
@@ -183,14 +188,19 @@ function nextQuestion() {
     console.log('Game over. No more rounds.');
     return;
   }
+
+  queCount++;
   const nextCountry = getStartingCountry();
   document.getElementById(
     'flag-image'
   ).src = `https://flagcdn.com/h160/${nextCountry.code}.png`;
   startGame(nextCountry.name);
-  console.log('Next game will start');
+  updateQuestionQuestionCounter(queCount, 10);
 }
 
+function updateQuestionCounter(current, total) {
+  questionCounterElement.innerHTML = `<div><span>${current}</span>of<span>${total}</span>Questions</div>`;
+}
 // Toggle the state (enabled / disabled) of the option buttons
 function answerButtonsState(state) {
   const buttons = document.querySelectorAll('.answer-button');
@@ -207,3 +217,4 @@ function changeButtonsBackground(rightAnswer) {
     }
   });
 }
+let queCount = 0;
