@@ -182,20 +182,20 @@ body {
 
 .quiz-box .header-wrapper .title i {
   color: goldenrod;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   font-size: 1.5rem;
 }
 .quiz-box .header-wrapper .timer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 110px;
+  width: 80px;
   height: 3rem;
   background: var(--timer-bg-color);
   border: var(--background-color);
   border-radius: 5px;
-  padding: 0 10px;
-  margin-right: 1.5rem;
+  padding: 0 5px;
+  margin-right: 0.5rem;
 }
 
 .quiz-box .header-wrapper .timer .time-text {
@@ -203,13 +203,10 @@ body {
 }
 
 .quiz-box .header-wrapper .timer .timer-sec {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  height: 2rem;
-  width: 3rem;
   color: var(--main-bg-color);
   text-align: center;
-  line-height: 32px;
   border-radius: 5px;
   border: var(--box-shadow);
   user-select: none;
@@ -219,14 +216,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: 2rem 1rem;
+  margin: 1rem 1rem;
 }
 
 #flag-image {
-  width: 150px;
+  width: 300px;
   height: 150px;
-  border-radius: 30px;
   border: 1px solid #3a3a3a;
+}
+
+.result .score {
+  padding: 4px;
+  margin: 0.5rem;
+  text-align: center;
+  justify-content: center;
 }
 
 .quiz-box section {
@@ -309,13 +312,6 @@ footer #next-btn {
   border: var(--box-shadow);
   cursor: pointer;
   margin-right: 1rem;
-}
-
-.result .score {
-  padding: 4px;
-  margin: 0 2rem;
-  text-align: center;
-  justify-content: center;
 }
 
 /* Result box */
