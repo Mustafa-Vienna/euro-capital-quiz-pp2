@@ -220,7 +220,7 @@ body {
 }
 
 #flag-image {
-  width: 300px;
+  width: 90%;
   height: 150px;
   border: 1px solid #3a3a3a;
 }
@@ -253,7 +253,7 @@ section .option-list .answer-button {
   margin: 0 auto 1rem;
   display: block;
   justify-content: center;
-  width: 200px;
+  width: 80%;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -298,7 +298,7 @@ section .option-list .answer-button {
 }
 
 .quiz-box footer .total-que span {
-  padding: 0 5px;
+  padding: 0 0.5rem;
 }
 
 footer #next-btn {
