@@ -106,6 +106,8 @@ function setAnswerCount(rightAnswer, userAnswer, correctCount, incorrectCount) {
   let incorrectCountValue = parseInt(incorrectCount.innerText);
 
   if (userAnswer === rightAnswer) {
+    userScore += 1;
+    console.log(userScore);
     correctCountValue += 1;
     correctCount.innerText = correctCountValue;
   } else {
@@ -160,12 +162,14 @@ function gameOverHandler(correctCount, incorrectCount) {
   let isGameOver = correctCountValue + incorrectCountValue >= 10;
 
   if (isGameOver) {
+    showResultBox();
     // Change the text of the next button to "Game Over"
     const nextBtn = document.getElementById('next-btn');
     nextBtn.innerText = 'Game Over!';
 
     // Stop the game with early return
     return;
+  } else {
   }
 }
 
@@ -263,4 +267,36 @@ function answerButtonsState(state) {
   buttons.forEach((button) => {
     button.disabled = state;
   });
+}
+
+const resultBox = document.querySelector('.result-box');
+const restartQuiz = resultBox.querySelector('.buttons .restart');
+const exitQuiz = resultBox.querySelector('.buttons .quit');
+
+let userScore = 0;
+function showResultBox() {
+  infoBox.classList.remove('active'); // Hide the info box
+  quizBox.classList.remove('activeQuiz'); //Hid the Quiz
+  resultBox.classList.add('activeResult'); //Show the Quiz Result box
+  const scoreResult = resultBox.querySelector('.score-text');
+
+  if (userScore > 7 && userScore <= 10) {
+    let scoreTag =
+      `<span>and congrats, You got only&nbsp;<span>` +
+      userScore +
+      `</span>&nbsp;out of&nbsp;<span>10</span></span>`;
+    scoreResult.innerHTML = scoreTag;
+  } else if (userScore > 4 && userScore <= 7) {
+    let scoreTag =
+      `<span>and nice, You got only&nbsp;<span>` +
+      userScore +
+      `</span>&nbsp;out of&nbsp;<span>10</span></span>`;
+    scoreResult.innerHTML = scoreTag;
+  } else {
+    let scoreTag =
+      `<span>and sorry, You got only&nbsp;<span>` +
+      userScore +
+      `</span>&nbsp;out of&nbsp;<span>10</span></span>`;
+    scoreResult.innerHTML = scoreTag;
+  }
 }
