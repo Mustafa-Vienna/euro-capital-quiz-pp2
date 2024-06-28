@@ -30,6 +30,8 @@ function initGame() {
   document.getElementById(
     'flag-image'
   ).src = `https://flagcdn.com/h160/${startingCountry.code}.png`;
+  // disable the next button until the user selects an answer
+  document.getElementById('next-btn').disabled = true;
   startGame(startingCountry.name);
 }
 const countriesList = [
@@ -74,32 +76,70 @@ function getStartingCountry() {
 /**
  * Function to verify the selected answer by user
  */
-function verifyAnswer(rightAnswer, userAnswer) {
-  // console.log(`The user selected ${country.code}`);
-  // Declare initial variables
+function verifyAnswerHandler(rightAnswer, userAnswer) {
   const correctCount = document.getElementById('correct-count');
-  const incorrectCount = document.getElementById('incorrect-count'); //
+  const incorrectCount = document.getElementById('incorrect-count');
 
+  // Set correct and incorrect answers count
+  setAnswerCount(rightAnswer, userAnswer, correctCount, incorrectCount);
+
+  // Update played rounds count
+  setPlayedRounds();
+
+  // Disable all buttons to prevent multiple clicks
+  answerButtonsState(true);
+
+  // Timer handler
+  checkTimeHandler();
+
+  // Check if the game is over
+  gameOverHandler(correctCount, incorrectCount);
+
+  // return the result of the comparison
+  return rightAnswer === userAnswer;
+}
+
+function setAnswerCount(rightAnswer, userAnswer, correctCount, incorrectCount) {
   let correctCountValue = parseInt(correctCount.innerText);
   let incorrectCountValue = parseInt(incorrectCount.innerText);
 
-  let isGameOver = correctCountValue + incorrectCountValue >= 10;
-  if (isGameOver) return; //Do something when the game is over
-  // console.log('rightAnswer');
   if (userAnswer === rightAnswer) {
     correctCountValue += 1;
     correctCount.innerText = correctCountValue;
-    // console.log('right');
   } else {
     incorrectCountValue += 1;
     incorrectCount.innerText = incorrectCountValue;
-    // console.log('wrong');
   }
-  answerButtonsState(true);
-  return rightAnswer === userAnswer;
-  // changeButtonsBackground(rightAnswer);
-  // Returning a boolean, check if it is a right answer
-  // return userAnswer === rightAnswer;
+}
+
+function setPlayedRounds() {
+  const playedRounds = document.getElementById('rounds-count');
+  let playedRoundsValue = parseInt(playedRounds.innerText);
+
+  playedRoundsValue += 1;
+  playedRounds.innerText = playedRoundsValue;
+}
+
+function checkTimeHandler() {
+  let timeRemain = 15; // set countdown time to 15 seconds
+
+  // TODO: Implement countdown timer
+}
+
+function gameOverHandler(correctCount, incorrectCount) {
+  let correctCountValue = parseInt(correctCount.innerText);
+  let incorrectCountValue = parseInt(incorrectCount.innerText);
+  let isGameOver = correctCountValue + incorrectCountValue >= 10;
+
+  if (isGameOver) {
+    console.log('Game over');
+    // Change the text of the next button to "Game Over"
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.innerText = 'Game Over!';
+
+    // Stop the game with early return
+    return;
+  }
 }
 
 function preparedAnswers(initialCountry) {
@@ -138,11 +178,13 @@ function getAnswerButtons(initialCountry) {
 
   if (countries && countries.length) {
     answerButtons.forEach((button, index) => {
-      // Remove the 'right-answer' class and set button text
+      // Remove the 'right-answer' and 'wrong-answer' classes from previous question
       button.classList.remove('right-answer');
+      button.classList.remove('wrong-answer');
+      // Set buttons text
       button.innerText = countries[index];
 
-      // Remove existing event listeners
+      // Remove existing event listeners using cloneNode
       let newButton = button.cloneNode(true);
       button.parentNode.replaceChild(newButton, button);
 
@@ -155,17 +197,18 @@ function getAnswerButtons(initialCountry) {
 }
 
 function handleAnswerClick(button, rightAnswer) {
-  const isCorrect = verifyAnswer(rightAnswer, button.innerText);
+  const isCorrect = verifyAnswerHandler(rightAnswer, button.innerText);
   if (isCorrect) {
     button.classList.add('right-answer');
     console.log('This is the right button');
   } else {
+    button.classList.add('wrong-answer');
     console.log('This is the wrong button');
   }
   // Disable all buttons to prevent multiple clicks
   answerButtonsState(true);
-  // Highlight the correct answer
-  changeButtonsBackground(rightAnswer);
+  // Enable the next button
+  document.getElementById('next-btn').disabled = false;
 }
 
 function nextQuestion() {
@@ -179,20 +222,18 @@ function nextQuestion() {
     console.log('Game over. No more rounds.');
     return;
   }
-
-  queCount++;
   const nextCountry = getStartingCountry();
   document.getElementById(
     'flag-image'
   ).src = `https://flagcdn.com/h160/${nextCountry.code}.png`;
   startGame(nextCountry.name);
-  updateQuestionQuestionCounter(queCount, 10);
+  console.log('Next game will start');
+  // disable the next button until the user selects an answer
+  document.getElementById('next-btn').disabled = true;
 }
 
-function updateQuestionCounter(current, total) {
-  questionCounterElement.innerHTML = `<div><span>${current}</span>of<span>${total}</span>Questions</div>`;
-}
-// Toggle the state (enabled / disabled) of the option buttons
+// Toggle the state of the option buttons
+// State can be true (enabled) or false (disabled)
 function answerButtonsState(state) {
   const buttons = document.querySelectorAll('.answer-button');
   buttons.forEach((button) => {
