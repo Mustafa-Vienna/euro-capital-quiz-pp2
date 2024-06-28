@@ -6,7 +6,7 @@ const exitBtn = infoBox.querySelector('.buttons .quit');
 const startGameBtn = infoBox.querySelector('.buttons .start-game');
 const quizBox = document.querySelector('.quiz-box');
 let timer; // Declare a global timer variable
-let didUserChoose; //Store state to check if the user picked any choose
+let userMadeChoice; //Store state to check if the user picked any choose
 
 // When the Start button clicked, it will display the info box
 startBtn.onclick = () => {
@@ -67,7 +67,7 @@ const countriesList = [
 // Function to get a random country from the countries array
 function startGame(startingCountry) {
   getAnswerButtons(startingCountry);
-  didUserChoose = false; //Reset user choose state
+  userMadeChoice = false; //Reset user choose state
   checkTimeHandler(); // Start the timer for the round
   answerButtonsState(false);
 }
@@ -144,7 +144,7 @@ function checkTimeHandler() {
       incorrectCountValue += 1;
       incorrectCount.innerText = incorrectCountValue;
 
-      if (!didUserChoose) {
+      if (!userMadeChoice) {
         setRoundsLeft();
 
         // Move to the next question
@@ -221,7 +221,7 @@ function getAnswerButtons(initialCountry) {
 
       // Add new event listener
       newButton.addEventListener('click', function () {
-        didUserChoose = true;
+        userMadeChoice = true;
         handleAnswerClick(newButton, rightAnswer);
       });
     });
