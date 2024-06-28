@@ -8,9 +8,6 @@ const infoBox = document.querySelector('.info-box');
 const exitBtn = infoBox.querySelector('.buttons .quit');
 const continueBtn = infoBox.querySelector('.buttons .restart');
 const quizBox = document.querySelector('.quiz-box');
-const correctCountElement = document.getElementById('correct-count');
-const incorrectCountElement = document.getElementById('incorrect-count');
-const questionCounterElement = document.querySelector('.total-que span');
 
 // When the Start button clicked, it will display the info box
 startBtn.onclick = () => {
@@ -26,8 +23,6 @@ exitBtn.onclick = () => {
 continueBtn.onclick = () => {
   infoBox.classList.remove('active'); // Hide the info box
   quizBox.classList.add('activeQuiz'); //Show the Quiz
-  queCount = 0; //reset question count
-  initGame(); //start the game
 };
 
 function initGame() {
@@ -36,10 +31,6 @@ function initGame() {
     'flag-image'
   ).src = `https://flagcdn.com/h160/${startingCountry.code}.png`;
   startGame(startingCountry.name);
-  correctCountElement.innerText = 0;
-  incorrectCountElement = 0;
-  queCount = 0;
-  nextQuestion();
 }
 const countriesList = [
   { code: 'at', name: 'Austria' },
@@ -208,13 +199,3 @@ function answerButtonsState(state) {
     button.disabled = state;
   });
 }
-
-function changeButtonsBackground(rightAnswer) {
-  const buttons = document.querySelectorAll('.answer-button');
-  buttons.forEach((button) => {
-    if (button.innerHTML === rightAnswer) {
-      button.classList.add('right-answer');
-    }
-  });
-}
-let queCount = 0;
