@@ -12,7 +12,7 @@
 /* Define custom fonts and color palette */
 :root {
   /* Fonts */
-  ---main-font-family: 'Open Sans', sans-serif;
+  --main-font-family: 'Open Sans', sans-serif;
   --heading-font: 'Roboto', sans-serif;
 
   /* Colors */
@@ -99,6 +99,7 @@ body {
 
 .info-box .info-list {
   padding: 1rem 2rem;
+  font-family: var(--main-font-family);
 }
 
 .info-box .info-list .info {

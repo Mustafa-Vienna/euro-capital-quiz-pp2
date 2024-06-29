@@ -1,116 +1,116 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome Mustafa Muhammed,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 14, 2024**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+# European Union Flag Quiz
 
 ---
 
-## Release History
+The Flag Quiz is a JavaScript application that allows users to test their knowledge of country flags. Users are presented with a flag and must select the correct country from multiple choices. The application tracks correct and incorrect answers and provides feedback on user performance.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+[Live project here](https://mustafa-vienna.github.io/euro-capital-quiz-pp2/)
 
-**June 14, 2024,** Temporarily remove Mongo until key issue is resolved
+![Mockup of Flag Quiz](assets/images/readme/review.webp)
 
-**May 28 2024:** Fix Mongo and Links installs
+## Contents
 
-**April 26 2024:** Update node version to 16
+1. [Flag Quiz Website](#flag-quiz-website)
+   - [User Story](#user-story)
+   - [Acceptance Criteria](#acceptance-criteria)
+2. [Features](#features)
+   - [General Features on Each Page](#general-features-on-each-page)
+   - [Future Implementations](#future-implementations)
+   - [Accessibility](#accessibility)
+3. [Usage](#usage)
+4. [Design](#design)
+   - [Color Scheme](#color-scheme)
+   - [Typography](#typography)
+   - [Wireframes](#wireframes)
 
-**September 20 2023:** Update Python version to 3.9.17.
+## User Story
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+As a geography enthusiast, I want to test my knowledge of country flags by taking a quiz, so that I can improve my recognition skills and learn more about different countries.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Acceptance Criteria
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- As a user, I can see a flag and multiple choice options to select the correct country.
+- I should be able to see my score and track my progress throughout the quiz.
+- It's essential for me to have a timer for each question to make the quiz more challenging.
+- The application should be responsive and work well on different devices.
+- I expect the application to provide feedback on my performance after the quiz.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+[Go to Contents](#contents)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Features
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### General Features on Each Page
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- **Demo Data**: The application provides demo data for the first load for testing purposes.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- **Quiz Functionality**: Users are presented with a flag and must choose the correct country from four options.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+  ![Quiz question](assets/images/readme/quiz_game.webp)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- **Score Tracking**: Tracks the number of correct and incorrect answers.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- **Failed**: If the user scores less than 4 correct answers.
+  ![Score tracking](assets/images/readme/failed_score.webp)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- **Pass**: If the user scores between 4 and 7 correct answers.
+  ![Score tracking](assets/images/readme/pass_score.webp)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- **Excellent**: If the user scores more than 7 correct answers.
+  ![Score tracking](assets/images/readme/top_score.webp)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- **Timer**: Each question has a countdown timer to add urgency to the quiz. Each question must be answered within a 5-second time frame. If the player does not select any option within this time frame, they will lose one score.
 
----
+  ![Timer](assets/images/readme/timer.webp)
 
-## FAQ about the uptime script
+- **Responsive Design**: The application is optimized for various screen sizes and devices.
 
-**Why have you added this script?**
+### Future Implementations
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+I plan to enhance the Flag Quiz website with additional features such as more questions, difficulty levels, and leaderboards to make the quiz more engaging and competitive.
 
-**How will this affect me?**
+### Accessibility
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+The Flag Quiz website is designed with accessibility in mind to ensure all users can navigate and enjoy the content. Key accessibility features include:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- **Responsive Design**: The site is fully responsive, adapting to different screen sizes and devices to provide a seamless experience for all users.
+- **Alt Text for Images**: All images on the site include descriptive alt text to aid users with screen readers.
+- **Keyboard Navigation**: The site supports full keyboard navigation to assist users who cannot use a mouse.
+- **Contrast and Readability**: High contrast colors and readable fonts are used throughout the site to ensure text is easy to read.
+- **Semantic HTML**: The site uses semantic HTML elements to improve accessibility and SEO.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+[Go to Contents](#contents)
 
-**So….?**
+## Usage
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+1. Start the quiz by clicking the "Start" button.
+2. View the flag displayed and choose the correct country from the multiple choice options.
+3. The application will automatically move to the next question if the player did not select any answer and the timer runs out.
+4. If the player selects an answer, they can click on the next button.
+5. The next button is only clickable if the player made a choice.
+6. After completing 10 questions, the quiz will end, and you will see your final score.
+7. To restart the quiz, click the "Replay Quiz" button.
+8. To quit/exit the quiz, click the "Quit Quiz" button.
 
-**Can I opt out?**
+[Go to Contents](#contents)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Design
+
+### Color Scheme
+
+The color scheme for the Flag Quiz website was chosen to create a vibrant and engaging atmosphere that appeals to users of all ages. A smoke-white color was used for the background to enhance visibility and provide a comfortable viewing experience.
+
+![Colors used in Flag Quiz](assets/images/readme/color_used.webp)
+
+### Typography
+
+The Flag Quiz website uses a combination of fonts to create a visually appealing and cohesive design. These fonts were chosen for their readability, versatility, and aesthetic appeal.
+
+- **Roboto**: Imported from Google Fonts, used for both regular and bold text, in both normal and italic styles. Used for headings to add a playful and bold touch. Used for body text to ensure readability.
 
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 ```
 
-**Anything more?**
+- **Open Sans**: Used specifically for the rules in the .info-lis class to enhance readability and provide a clear presentation of information.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+[Go to Contents](#contents)
