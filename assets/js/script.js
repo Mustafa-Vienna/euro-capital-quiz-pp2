@@ -377,8 +377,6 @@ const exitQuiz = resultBox.querySelector('.buttons .quit'); // Exit button ub tg
 restartQuiz.onclick = () => {
   resultBox.classList.remove('activeResult'); //Hide the result box
   infoBox.classList.remove('active'); // Hide the info box
-  quizBox.classList.add('activeQuiz'); //Show the Quiz
-  initGame();
 };
 
 /**

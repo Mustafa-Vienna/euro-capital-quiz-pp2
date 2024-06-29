@@ -66,8 +66,10 @@ body {
   cursor: pointer;
 }
 
+/* Info box */
 .info-box {
-  width: 100%;
+  width: 95%;
+  height: auto;
   max-width: 550px;
   background-color: var(--smoke-white);
   border-radius: 5px;
@@ -156,8 +158,8 @@ body {
 
 /* Quiz Box Styling */
 .quiz-box {
-  width: 100%;
-  max-width: 540px;
+  width: 95%;
+  max-width: 550px;
   background: var(--smoke-white);
   border-radius: 5px;
   margin: 1rem auto;
@@ -318,7 +320,8 @@ footer #next-btn {
 /* Result box */
 .result-box {
   background-color: var(--smoke-white);
-  width: 460px;
+  width: 95%;
+  max-width: 550px;
   padding: 25px 30px;
   border-radius: 5px;
   display: flex;
