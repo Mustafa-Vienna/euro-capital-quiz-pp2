@@ -29,6 +29,14 @@ The Flag Quiz is a JavaScript application that allows users to test their knowle
      - [How to Clone](#how-to-clone)
      - [Used Git Commands](#used-git-commands)
 7. [Key Functionalities](#key-functionalities)
+8. [Testing](#testing)
+   - [Manual Testing](#manual-testing)
+   - [HTML and CSS Validation](#html-and-css-validation)
+   - [JavaScript Validation](#javascript-validation)
+   - [Performance Testing with Lighthouse](#performance-testing-with-lighthouse)
+   - [Accessibility Testing with Wave](#accessibility-testing)
+9. [Bugs](#bugs)
+10. [Credits](#credits)
 
 ## User Story
 
@@ -208,6 +216,11 @@ git commit -m "Your commit massage"
 git push
 ```
 
+- `git add <file_name>`: Added specific files to the staging area before committing changes.
+- `git add .`: To add all files to the staging area before committing changes.
+- `git commit -m "commit message"`: Committed the staged changes with descriptive messages to track the progress of the project.
+- `git push`: Pushed local commits to the remote repository on GitHub, ensuring that the latest changes were synchronized with the online repository.
+
 [Go to Contents](#contents)
 
 ## Key Functionalities
@@ -215,5 +228,157 @@ git push
 - **Answer Validation**: The application checks if the selected answer is correct and updates the score accordingly.
 
 - **Timer Functionality**: Each question has a countdown timer, and if the user does not select an answer in time, it increments the incorrect answer count and moves to the next question.
+
+[Go to Contents](#contents)
+
+## Testing
+
+### Manual Testing
+
+Manual testing was conducted to ensure that common elements functioned correctly and were responsive on different devices. The following checks were confirmed:
+
+1. **Start Button**: Verified that clicking the "Start" button navigates the user to the game rules box.
+2. **Game Rules Box**: Ensured that the game rules are displayed correctly.
+3. **Continue Button**: Verified that clicking the "Continue" button on the rules box navigates the user to the quiz game box.
+4. **Exit Quiz Button**: Ensured that clicking the "Exit Quiz" button on the rules box navigates the user back to the first page with the "Start" button.
+5. **Flag Display**: Ensured that a flag image is displayed at the start of each question.
+6. **Answer Options**: Checked that four answer options are displayed for each question.
+7. **Answer Selection**: Verified that selecting an answer highlights the selected option and enables the "Next" button.
+8. **Correct Option**: Verified that one of the four options matches the displayed flag.
+9. **Incorrect Answer**: Ensured that if the user answers incorrectly, the button background color turns red.
+10. **Correct Answer**: Ensured that if the user answers correctly, the button background color turns green.
+11. **Score Increment**: Verified that if the user answers correctly, the score counter increments by one.
+12. **Miss Increment**: Verified that if the user answers incorrectly, the miss counter increments by one.
+13. **Total Question Counter**: Confirmed that after the user answers (correct, incorrect, or timeout), the total question counter decrements by one.
+14. **Timer Functionality**: Confirmed that the timer starts at the beginning of each question and counts down from 5 seconds.
+15. **Timer Expiry**: Ensured that if no answer is selected within 5 seconds, the question is marked as incorrect, and the application moves to the next question.
+16. **Next Button**: Verified that the "Next" button becomes clickable only after an answer is selected and correctly navigates to the next question.
+17. **Score Tracking**: Checked that the score is updated correctly for both correct and incorrect answers.
+18. **End of Quiz**: Ensured that after 10 questions, the quiz ends and the final score is displayed.
+19. **Result Box Display**: Verified that the result box displays the text according to user scores.
+20. **Score Tracking**: Checked that the number of correct and incorrect answers are accurately displayed in the result box.
+21. **Result Messages**: Ensured that the result messages are displayed according to the following scenarios:
+    - If the user scores less than 4 correct answers, the message "Sorry" is displayed.
+    - If the user scores between 4 and 7 correct answers, the message "Nice" is displayed.
+    - If the user scores more than 7 correct answers, the message "Congrats" is displayed.
+22. **Result Box Functionality**: Confirmed that the result box shows the appropriate message based on the user's score at the end of the quiz.
+23. **Responsive Result Box**: Ensured that the result box is responsive and displays correctly on different screen sizes, including desktops, tablets, and mobile devices.
+
+Following Devices were used for testing:
+
+#### Browser
+
+- Google Chrome
+- safari
+
+#### Laptop
+
+- Macbook Air M1, 13-inch
+- Samsung Monitor 32-inch
+- Asus Zenbook Fold
+
+#### Tablets
+
+- Blackberry Playbook
+- Nexus 10
+- iPad Mini
+- iPad Air
+- iPad Pro
+- Surface Pro 7
+
+#### Mobile devices
+
+- Google Pixel 6
+- Galaxy Note 3
+- Nexus 6P
+- Nokia N9
+- iPhone SE
+- iPhone XR
+- iPhone 12 Pro
+- iPhone 14 Pro max
+- iPhone 15 Pro max
+- Pixel 7
+- Samsung Galaxy Z Fold 4
+- Samsung Galaxy S8+
+- Samsung Galaxy S20
+- Samsung Galaxy S20 Ultra
+- Samsung Galaxy A51/71
+- Surface Duo
+
+[Go to Contents](#contents)
+
+### HTML and CSS Validation
+
+#### Jigsaw CSS Validator
+
+The CSS code was validated using [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
+
+![Jigsaw-CSS-Validator](assets/images/readme/testing_results/css_test.png)
+
+- **Pass**
+
+#### W3 HTML Validator
+
+The HTML code was validated using [W3C Validator](https://validator.w3.org/#validate_by_uri+with_options)
+
+![W3-HTML-Validator](assets/images/readme/testing_results/html_test.png)
+
+- **Pass**
+
+#### JavaScript Validation
+
+Each JavaScript function within the Bookmark Manager application was meticulously tested for errors and functionality using the browser console and [JSHint](https://jshint.com/) tool.
+
+No errors were found and the following metrics were returned:
+
+- **Pass**
+
+![JSHint validation](assets/images/readme/testing_results/js_code_test.png)
+
+- **Pass**
+
+[Go to Contents](#contents)
+
+## Performance Testing with Lighthouse
+
+I use Lighthouse to test and improve my website's performance, accessibility, best practice, and SEO.
+
+### Start page
+
+![Lighthouse-Star-Page](assets/images/readme/testing_results/start_btn_lighthouse.png)
+
+### Game Rules page
+
+![Lighthouse-Rules-Page](assets/images/readme/testing_results/rules_box_lighthouse.png)
+
+### Quiz Game page
+
+![Lighthouse-Quiz-Page](assets/images/readme/testing_results/game_box_lighthouse.png)
+
+### Results page
+
+![Lighthouse-Results-Page](assets/images/readme/testing_results/rules_box_lighthouse.png)
+
+[Go to Contents](#contents)
+
+## Accessibility Testing with Wave
+
+I use the Wave extension to test and improve website accessibility. It provides detailed insights and recommendations, making it easier to identify and fix accessibility issues, ensuring an inclusive user experience for all.
+
+### Start page
+
+![Wave-Start-Page](assets/images/readme/testing_results/wave_start_btn.png)
+
+### Game Rules page
+
+![Wave-Home](assets/images/readme/testing_results/wave_rules_box.png)
+
+### Quiz Game page
+
+![Wave-Home](assets/images/readme/testing_results/wave_game_box.png)
+
+### Results page
+
+![Wave-Home](assets/images/readme/testing_results/wave_result_box.png)
 
 [Go to Contents](#contents)
