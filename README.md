@@ -4,8 +4,6 @@
 
 The Flag Quiz is a JavaScript application that allows users to test their knowledge of country flags. Users are presented with a flag and must select the correct country from multiple choices. The application tracks correct and incorrect answers and provides feedback on user performance.
 
-[Live project here](https://mustafa-vienna.github.io/euro-capital-quiz-pp2/)
-
 ![Mockup of Flag Quiz](assets/images/readme/review.webp)
 
 ## Contents
@@ -23,7 +21,7 @@ The Flag Quiz is a JavaScript application that allows users to test their knowle
    - [Typography](#typography)
    - [Wireframes](#wireframes)
 5. [Technologies Used](#technologies-used)
-6. [Deployment & Local Development](#deployment-local-development)
+6. [Deployment and Local Development](#deployment-and-local-development)
    - [Deployment](#deployment)
    - [Local Development](#local-development)
      - [How to Clone](#how-to-clone)
@@ -38,8 +36,16 @@ The Flag Quiz is a JavaScript application that allows users to test their knowle
 9. [Bugs](#bugs)
 10. [Credits](#credits)
     - [Code Used](#code-used)
-    - [Content](#contents)
+    - [Content](#content)
     - [Acknowledgements](#acknowledgements)
+
+---
+
+## Flag Quiz Website
+
+[Live project here](https://mustafa-vienna.github.io/euro-capital-quiz-pp2/)
+
+[Go to Contents](#contents)
 
 ## User Story
 
@@ -187,7 +193,9 @@ In the EU Capital Flag Quiz website, the following technologies and tools were u
 
 [Go to Contents](#contents)
 
-## Deployment & Local Development
+## Deployment and Local Development
+
+[Go to Contents](#contents)
 
 ### Deployment
 
@@ -434,7 +442,7 @@ There are no known and unfixed bugs.
 
 - This project is a JavaScript-based quiz game that tests users' knowledge of European Union flags. The primary goal of the project is to create an engaging and educational quiz experience. The quiz features a clean and intuitive user interface, randomization of questions, scoring, and responsive design.
 
-[Go to Contents](#contents)
+[Go to Contents](#content)
 
 ### Acknowledgements
 
