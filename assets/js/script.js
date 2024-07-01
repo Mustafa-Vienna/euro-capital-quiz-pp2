@@ -375,8 +375,7 @@ const exitQuiz = resultBox.querySelector('.buttons .quit'); // Exit button ub tg
  * Handle the restart quiz button click event
  */
 restartQuiz.onclick = () => {
-  resultBox.classList.remove('activeResult'); //Hide the result box
-  infoBox.classList.remove('active'); // Hide the info box
+  window.location.reload();
 };
 
 /**
