@@ -34,9 +34,12 @@ The Flag Quiz is a JavaScript application that allows users to test their knowle
    - [HTML and CSS Validation](#html-and-css-validation)
    - [JavaScript Validation](#javascript-validation)
    - [Performance Testing with Lighthouse](#performance-testing-with-lighthouse)
-   - [Accessibility Testing with Wave](#accessibility-testing)
+   - [Accessibility Testing with Wave](#accessibility-testing-with-wave)
 9. [Bugs](#bugs)
 10. [Credits](#credits)
+    - [Code Used](#code-used)
+    - [Content](#contents)
+    - [Acknowledgements](#acknowledgements)
 
 ## User Story
 
@@ -380,5 +383,75 @@ I use the Wave extension to test and improve website accessibility. It provides 
 ### Results page
 
 ![Wave-Home](assets/images/readme/testing_results/wave_result_box.png)
+
+[Go to Contents](#contents)
+
+## Bugs
+
+### Fix generating new game,scoring implementation.
+
+- **Issue**: Previously, there were problems with starting a new game and correctly implementing the scoring system. Users experienced issues where the game would not reset properly, and scores were not being calculated or displayed accurately.
+
+- **Solution**: The game initialization logic was revised to ensure that a new game starts correctly each time.
+
+### Improve answer validation and split code into helper functions
+
+- **Issue**: The answer validation process was not robust enough, leading to incorrect feedback for users. Additionally, the codebase was becoming difficult to manage and maintain due to the lack of modularization.
+- **Solution**: Enhanced the answer validation logic to ensure precise and accurate feedback for users. The codebase was also refactored by splitting it into helper functions, improving readability, maintainability, and facilitating easier debugging and future enhancements.
+
+There are no known and unfixed bugs.
+
+[Go to Contents](#contents)
+
+## Credits
+
+### Code Used
+
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow): The `box-shadow` property example was learned from MDN Web Docs.
+
+- [Stack Overflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array): The `shuffle` method using the Fisher-Yates algorithm was learned from Stack Overflow.
+
+- [Stack Overflow](https://stackoverflow.com/questions/76184276/userscript-addeventlistener-seemingly-not-attaching-to-element): Remove eventListeners from answer buttons.
+  ![screenshot](assets/images/readme/code_stackoverflow.webp)
+
+- [Flag Quiz](https://github.com/Natalitta/flags-quiz): Inspiration, structure, and guidance on how to start and end the quiz were learned from the Flag Quiz project on GitHub.
+
+### Content
+
+- This project is a JavaScript-based quiz game that tests users' knowledge of European Union flags. The primary goal of the project is to create an engaging and educational quiz experience. The quiz features a clean and intuitive user interface, randomization of questions, scoring, and responsive design.
+
+[Go to Contents](#contents)
+
+### Acknowledgements
+
+I would like to express my deepest gratitude to those who supported and guided me throughout this project:
+
+#### Luke
+
+My mentor, Luke, provided invaluable support and guidance from the initial concept to the final implementation. His expertise and advice were crucial in shaping the project. He suggested using the [Flagpedia API](https://flagpedia.net/download/api), which streamlined the process of generating EU flags, saving both time and effort. Luke's constant encouragement and constructive feedback kept me motivated and focused, significantly contributing to my growth as a developer. Thank you, Luke, for your unwavering support and mentorship.
+
+#### Ioan
+
+Special thanks to my friend and classmate, Ioan, for his extensive support throughout this project. His experience in development was invaluable, particularly in troubleshooting code issues and structuring JavaScript efficiently. Ioan's advice on time management was crucial for meeting deadlines and staying on track. Thank you, Ioan, for your patience, willingness to share your knowledge, and constant support.
+
+#### API Usage
+
+- [Flagpedia API](https://flagpedia.net/download/api) was utilized to generate the European Union flags, which significantly reduced development time. This resource was recommended by my mentor, Luke.
+
+#### Youtube channels
+
+I found the following Youtube channels very helpful in understanding the concepts of CSS, HTML and JavaScript:
+
+- [GreatStack](https://www.youtube.com/watch?v=PBcqGxrr9g8&t=1213s): The quiz game structure was learned from the GreatStack YouTube channel.
+
+- [Bro Code](https://www.youtube.com/watch?v=lfmg-EJ8gm4): Much of the JavaScript-related knowledge used in the project was learned from the Bro Code YouTube channel. The video is 12 hours long and provides deep explanations of JavaScript.
+
+- [Dave Gray](https://www.youtube.com/watch?v=EfAl9bwzVZk&t=13465s): Very handy for beginners like me in JavaScript. The 8-hour long tutorial explains everything from zero to advanced concepts
+
+- [JavaScript King](https://www.youtube.com/watch?v=NfvtQ2p5QG4&t=14530s): Includes 30 small projects mainly with JavaScript and some HTML and CSS. Very handy for planning and starting projects.
+
+- **ChatGPT**: Used for understanding CSS code, troubleshooting, and improving my English writing skills, particularly for crafting the README file.
+
+---
 
 [Go to Contents](#contents)
