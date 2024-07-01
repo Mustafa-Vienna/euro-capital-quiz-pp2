@@ -240,34 +240,50 @@ git push
 
 Manual testing was conducted to ensure that common elements functioned correctly and were responsive on different devices. The following checks were confirmed:
 
-1. **Start Button**: Verified that clicking the "Start" button navigates the user to the game rules box.
-2. **Game Rules Box**: Ensured that the game rules are displayed correctly.
-3. **Continue Button**: Verified that clicking the "Continue" button on the rules box navigates the user to the quiz game box.
-4. **Exit Quiz Button**: Ensured that clicking the "Exit Quiz" button on the rules box navigates the user back to the first page with the "Start" button.
-5. **Flag Display**: Ensured that a flag image is displayed at the start of each question.
-6. **Answer Options**: Checked that four answer options are displayed for each question.
-7. **Answer Selection**: Verified that selecting an answer highlights the selected option and enables the "Next" button.
-8. **Correct Option**: Verified that one of the four options matches the displayed flag.
-9. **Incorrect Answer**: Ensured that if the user answers incorrectly, the button background color turns red.
-10. **Correct Answer**: Ensured that if the user answers correctly, the button background color turns green.
-11. **Score Increment**: Verified that if the user answers correctly, the score counter increments by one.
-12. **Miss Increment**: Verified that if the user answers incorrectly, the miss counter increments by one.
-13. **Total Question Counter**: Confirmed that after the user answers (correct, incorrect, or timeout), the total question counter decrements by one.
-14. **Timer Functionality**: Confirmed that the timer starts at the beginning of each question and counts down from 5 seconds.
-15. **Timer Expiry**: Ensured that if no answer is selected within 5 seconds, the question is marked as incorrect, and the application moves to the next question.
-16. **Next Button**: Verified that the "Next" button becomes clickable only after an answer is selected and correctly navigates to the next question.
-17. **Score Tracking**: Checked that the score is updated correctly for both correct and incorrect answers.
-18. **End of Quiz**: Ensured that after 10 questions, the quiz ends and the final score is displayed.
-19. **Result Box Display**: Verified that the result box displays the text according to user scores.
-20. **Score Tracking**: Checked that the number of correct and incorrect answers are accurately displayed in the result box.
-21. **Result Messages**: Ensured that the result messages are displayed according to the following scenarios:
-    - If the user scores less than 4 correct answers, the message "Sorry" is displayed.
-    - If the user scores between 4 and 7 correct answers, the message "Nice" is displayed.
-    - If the user scores more than 7 correct answers, the message "Congrats" is displayed.
-22. **Result Box Functionality**: Confirmed that the result box shows the appropriate message based on the user's score at the end of the quiz.
-23. **Responsive Result Box**: Ensured that the result box is responsive and displays correctly on different screen sizes, including desktops, tablets, and mobile devices.
+| Test Case                | Description                                                                                                                                                                                                                                                                                                                                                        | Status |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| Start Button             | Verified that clicking the "Start" button navigates the user to the game rules box.                                                                                                                                                                                                                                                                                | Passed |
+| Game Rules Box           | Ensured that the game rules are displayed correctly.                                                                                                                                                                                                                                                                                                               | Passed |
+| Continue Button          | Verified that clicking the "Continue" button on the rules box navigates the user to the quiz game box.                                                                                                                                                                                                                                                             | Passed |
+| Exit Quiz Button         | Ensured that clicking the "Exit Quiz" button on the rules box navigates the user back to the first page with the "Start" button.                                                                                                                                                                                                                                   | Passed |
+| Flag Display             | Ensured that a flag image is displayed at the start of each question.                                                                                                                                                                                                                                                                                              | Passed |
+| Answer Options           | Checked that four answer options are displayed for each question.                                                                                                                                                                                                                                                                                                  | Passed |
+| Answer Selection         | Verified that selecting an answer highlights the selected option and enables the "Next" button.                                                                                                                                                                                                                                                                    | Passed |
+| Correct Option           | Verified that one of the four options matches the displayed flag.                                                                                                                                                                                                                                                                                                  | Passed |
+| Incorrect Answer         | Ensured that if the user answers incorrectly, the button background color turns red.                                                                                                                                                                                                                                                                               | Passed |
+| Correct Answer           | Ensured that if the user answers correctly, the button background color turns green.                                                                                                                                                                                                                                                                               | Passed |
+| Score Increment          | Verified that if the user answers correctly, the score counter increments by one.                                                                                                                                                                                                                                                                                  | Passed |
+| Miss Increment           | Verified that if the user answers incorrectly, the miss counter increments by one.                                                                                                                                                                                                                                                                                 | Passed |
+| Total Question Counter   | Confirmed that after the user answers (correct, incorrect, or timeout), the total question counter decrements by one.                                                                                                                                                                                                                                              | Passed |
+| Timer Functionality      | Confirmed that the timer starts at the beginning of each question and counts down from 5 seconds.                                                                                                                                                                                                                                                                  | Passed |
+| Timer Expiry             | Ensured that if no answer is selected within 5 seconds, the question is marked as incorrect, and the application moves to the next question.                                                                                                                                                                                                                       | Passed |
+| Next Button              | Verified that the "Next" button becomes clickable only after an answer is selected and correctly navigates to the next question.                                                                                                                                                                                                                                   | Passed |
+| Score Tracking           | Checked that the score is updated correctly for both correct and incorrect answers.                                                                                                                                                                                                                                                                                | Passed |
+| End of Quiz              | Ensured that after 10 questions, the quiz ends and the final score is displayed.                                                                                                                                                                                                                                                                                   | Passed |
+| Result Box Display       | Verified that the result box displays the text according to user scores.                                                                                                                                                                                                                                                                                           | Passed |
+| Score Tracking           | Checked that the number of correct and incorrect answers are accurately displayed in the result box.                                                                                                                                                                                                                                                               | Passed |
+| Result Messages          | Ensured that the result messages are displayed according to the following scenarios:<br> - If the user scores less than 4 correct answers, the message "Sorry" is displayed.<br> - If the user scores between 4 and 7 correct answers, the message "Nice" is displayed.<br> - If the user scores more than 7 correct answers, the message "Congrats" is displayed. | Passed |
+| Result Box Functionality | Confirmed that the result box shows the appropriate message based on the user's score at the end of the quiz.                                                                                                                                                                                                                                                      | Passed |
+| Responsive Result Box    | Ensured that the result box is responsive and displays correctly on different screen sizes, including desktops, tablets, and mobile devices.                                                                                                                                                                                                                       | Passed |
 
-Following Devices were used for testing:
+---
+
+### 404 Page Testing
+
+- **Implementation**: A custom 404 page has been added to the project to handle non-existent routes. This page provides users with a friendly message and a link to return to the home page.
+- **Testing**: The 404 page was thoroughly tested to ensure it works as expected.
+
+| Test Case                        | Description                                                                              | Status |
+| -------------------------------- | ---------------------------------------------------------------------------------------- | ------ |
+| Navigating to a non-existent URL | Verified that accessing a non-existent URL within the application displays the 404 page. | Passed |
+| 404 Message Display              | Ensured that the 404 message is correctly displayed on the page.                         | Passed |
+| Home Page Link                   | Verified that the link on the 404 page redirects users back to the home page.            | Passed |
+
+- **Results**: All test cases passed successfully. The 404 page displays correctly when users navigate to an invalid URL, and the redirect link functions as intended.
+
+The addition and testing of the 404 page ensures that users encounter a clear and helpful message when they try to access a page that does not exist, improving overall user experience.
+
+### Following Devices were used for testing:
 
 #### Browser
 
