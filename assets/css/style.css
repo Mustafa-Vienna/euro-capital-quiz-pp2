@@ -382,4 +382,9 @@ footer #next-btn {
   font-size: 2rem;
   justify-content: center;
   margin-top: 3rem;
+  padding: 1rem;
+}
+
+#section-404 h1 {
+  margin-bottom: 1rem;
 }
