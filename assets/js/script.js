@@ -400,19 +400,19 @@ function showResultBox() {
   // Display a msg based on the user's score
   if (userScore > 7 && userScore <= 10) {
     let scoreTag =
-      `<span>and congrats, You got only&nbsp;<span>` +
+      `<span>Congrats, You got only&nbsp;<span>` +
       userScore +
       `</span>&nbsp;out of&nbsp;<span>10</span></span>`;
     scoreResult.innerHTML = scoreTag;
   } else if (userScore > 4 && userScore <= 7) {
     let scoreTag =
-      `<span>and nice, You got only&nbsp;<span>` +
+      `<span>Nice, You got only&nbsp;<span>` +
       userScore +
       `</span>&nbsp;out of&nbsp;<span>10</span></span>`;
     scoreResult.innerHTML = scoreTag;
   } else {
     let scoreTag =
-      `<span>and sorry, You got only&nbsp;<span>` +
+      `<span>Sorry, You got only&nbsp;<span>` +
       userScore +
       `</span>&nbsp;out of&nbsp;<span>10</span></span>`;
     scoreResult.innerHTML = scoreTag;
