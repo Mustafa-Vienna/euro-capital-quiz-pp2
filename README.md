@@ -36,7 +36,7 @@ The Flag Quiz is a JavaScript application that allows users to test their knowle
 9. [Bugs](#bugs)
 10. [Credits](#credits)
     - [Code Used](#code-used)
-    - [Content](#content)
+    - [Content Details](#content-details)
     - [Acknowledgements](#acknowledgements)
 
 ---
@@ -438,11 +438,11 @@ There are no known and unfixed bugs.
 - [Stack Overflow](https://stackoverflow.com/questions/76184276/userscript-addeventlistener-seemingly-not-attaching-to-element): Remove eventListeners from answer buttons.
   ![screenshot](assets/images/readme/code_stackoverflow.webp)
 
-### Content
+### Content Details
 
 - This project is a JavaScript-based quiz game that tests users' knowledge of European Union flags. The primary goal of the project is to create an engaging and educational quiz experience. The quiz features a clean and intuitive user interface, randomization of questions, scoring, and responsive design.
 
-[Go to Contents](#content)
+[Go to Contents](#contents)
 
 ### Acknowledgements
 
