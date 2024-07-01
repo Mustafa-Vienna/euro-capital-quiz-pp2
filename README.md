@@ -430,8 +430,6 @@ There are no known and unfixed bugs.
 - [Stack Overflow](https://stackoverflow.com/questions/76184276/userscript-addeventlistener-seemingly-not-attaching-to-element): Remove eventListeners from answer buttons.
   ![screenshot](assets/images/readme/code_stackoverflow.webp)
 
-- [Flag Quiz](https://github.com/Natalitta/flags-quiz): Inspiration, structure, and guidance on how to start and end the quiz were learned from the Flag Quiz project on GitHub.
-
 ### Content
 
 - This project is a JavaScript-based quiz game that tests users' knowledge of European Union flags. The primary goal of the project is to create an engaging and educational quiz experience. The quiz features a clean and intuitive user interface, randomization of questions, scoring, and responsive design.
@@ -454,7 +452,7 @@ Special thanks to my friend and classmate, Ioan, for his extensive support throu
 
 - [Flagpedia API](https://flagpedia.net/download/api) was utilized to generate the European Union flags, which significantly reduced development time. This resource was recommended by my mentor, Luke.
 
-#### Youtube channels
+#### Learning Resources
 
 I found the following Youtube channels very helpful in understanding the concepts of CSS, HTML and JavaScript:
 
@@ -466,7 +464,11 @@ I found the following Youtube channels very helpful in understanding the concept
 
 - [JavaScript King](https://www.youtube.com/watch?v=NfvtQ2p5QG4&t=14530s): Includes 30 small projects mainly with JavaScript and some HTML and CSS. Very handy for planning and starting projects.
 
+- [Flag Quiz](https://github.com/Natalitta/flags-quiz): Inspiration, structure, and guidance on how to start and end the quiz were learned from the Flag Quiz project on GitHub.
+
 - **ChatGPT**: Used for understanding CSS code, troubleshooting, and improving my English writing skills, particularly for crafting the README file.
+
+- [Brad Traversy - JavaScript: From Beginner to Advanced](https://www.udemy.com/course/modern-javascript-from-the-beginning/learn/lecture/37192762?start=60#overview/): This 36-hour course by Brad Traversy helped me build a strong foundation in JavaScript. I completed 50% of the course, covering essential topics such as basic syntax, functions, DOM manipulation, and asynchronous JavaScript. The knowledge gained from this course was crucial in developing this project.
 
 ---
 
