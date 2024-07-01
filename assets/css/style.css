@@ -372,3 +372,14 @@ footer #next-btn {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+/* 404 page */
+#section-404 {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+  justify-content: center;
+  margin-top: 3rem;
+}
