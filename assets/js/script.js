@@ -178,6 +178,8 @@ function checkTimeHandler() {
       // If time runs out
       clearInterval(timer); // Clear the timer
 
+      answerButtonsState(true); // Disable buttons
+
       //  Increment the incorrect answer count
       const incorrectCount = document.getElementById('incorrect-count');
       let incorrectCountValue = parseInt(incorrectCount.innerText);
@@ -335,6 +337,11 @@ function nextQuestion() {
 
   // Check if the total number of answered questions in 10 or more
   if (correctCount + incorrectCount >= 10) {
+    // Navigate to the result view after game is over
+    gameOverHandler(
+      document.getElementById('correct-count'),
+      document.getElementById('incorrect-count')
+    );
     return; //Exit the game if the game is over
   }
 
