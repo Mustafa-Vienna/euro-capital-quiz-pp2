@@ -65,7 +65,16 @@ As a geography enthusiast, I want to test my knowledge of country flags by takin
 
 ### General Features on Each Page
 
-- **Demo Data**: The application provides demo data for the first load for testing purposes.
+- **Quiz Start Page**: The initial page features a "Start EU-Flag Quiz" button. Clicking the "Start EU-Flag Quiz" button navigates the user to the game rules box page.
+
+![Quiz question](assets/images/readme/start_btn.webp)
+
+- **Quiz Rules Page**:
+  - **Display Rules**: The quiz rules page/box displays the rules for the quiz, explaining how to play the game.
+  - **Continue Button**: After reading the rules, users can click the "Continue" button to proceed to the quiz game box.
+  - **Exit Quiz Button**: Users can also click the "Exit Quiz" button to return to the start page.
+
+![Quiz question](assets/images/readme/quiz_rules.webp)
 
 - **Quiz Functionality**: Users are presented with a flag and must choose the correct country from four options.
 
