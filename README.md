@@ -423,6 +423,11 @@ I use the Wave extension to test and improve website accessibility. It provides 
 - **Issue**: The answer validation process was not robust enough, leading to incorrect feedback for users. Additionally, the codebase was becoming difficult to manage and maintain due to the lack of modularization.
 - **Solution**: Enhanced the answer validation logic to ensure precise and accurate feedback for users. The codebase was also refactored by splitting it into helper functions, improving readability, maintainability, and facilitating easier debugging and future enhancements.
 
+### Fix game over functionality for the last game
+
+- **Issue**: The game did not correctly handle the game over scenario at the end of the last game.
+- **Solution**: The game over functionality was fixed to ensure the game properly concludes and displays the final score when the last game is completed.
+
 There are no known and unfixed bugs.
 
 [Go to Contents](#contents)
